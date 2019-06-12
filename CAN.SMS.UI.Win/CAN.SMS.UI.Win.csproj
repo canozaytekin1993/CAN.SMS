@@ -73,6 +73,9 @@
     <Compile Include="UserControls\Controls\MyCalcEdit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UserControls\Controls\MyCardEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControls\Controls\MyTextEdit.cs">
       <SubType>Component</SubType>
     </Compile>
