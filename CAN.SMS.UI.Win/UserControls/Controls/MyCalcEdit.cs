@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
-using DevExpress.Utils;
-using DevExpress.XtraEditors;
 using System.Drawing;
 using CAN.SMS.UI.Win.Interfaces;
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
 
 namespace CAN.SMS.UI.Win.UserControls.Controls
 {

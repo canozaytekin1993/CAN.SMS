@@ -1,23 +1,26 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
 using CAN.SMS.UI.Win.Interfaces;
+using DevExpress.Utils;
 using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Mask;
 
 namespace CAN.SMS.UI.Win.UserControls.Controls
 {
     [ToolboxItem(true)]
-    public class MyComboBoxEdit : ComboBoxEdit, IStatusBarShortCut
+    public class MyDateEdit : DateEdit, IStatusBarShortCut
     {
-        public MyComboBoxEdit()
+        public MyDateEdit()
         {
             Properties.AppearanceFocused.BackColor = Color.LightCyan;
-            Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+            Properties.AllowNullInput = DefaultBoolean.False;
+            Properties.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
+            Properties.Mask.MaskType = MaskType.DateTimeAdvancingCaret;
         }
 
         public override bool EnterMoveNextControl { get; set; } = true;
         public string statusBarDescription { get; set; }
         public string statusBarShortCut { get; set; } = "F4 :";
-        public string statusBarShortCutDescription { get; set; }
+        public string statusBarShortCutDescription { get; set; } = "Choose Date";
     }
 }

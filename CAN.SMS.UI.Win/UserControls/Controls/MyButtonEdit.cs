@@ -1,9 +1,9 @@
-﻿using CAN.SMS.UI.Win.Interfaces;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using CAN.SMS.UI.Win.Interfaces;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 
 namespace CAN.SMS.UI.Win.UserControls.Controls
 {
@@ -23,6 +23,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
         public string statusBarShortCutDescription { get; set; }
 
         #region Events
+
         private long? _id;
 
         [Browsable(false)]
@@ -41,6 +42,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
         }
 
         public event EventHandler<IdChangedEventArgs> IdChanged = delegate { };
+
         #endregion
     }
 
