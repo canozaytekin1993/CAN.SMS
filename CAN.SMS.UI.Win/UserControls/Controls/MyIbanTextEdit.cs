@@ -10,7 +10,8 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
         public MyIbanTextEdit()
         {
             Properties.AppearanceFocused.BackColor = Color.AliceBlue;
-            Properties.Mask.EditMask = @"UK\d?\d? \d?\d?\d?\d? \d?\d?\d?\d? \d?\d?\d?\d? \d?\d?\d?\d? \d?\d?\d?\d? \d?\d?";
+            Properties.Mask.EditMask =
+                @"UK\d?\d? \d?\d?\d?\d? \d?\d?\d?\d? \d?\d?\d?\d? \d?\d?\d?\d? \d?\d?\d?\d? \d?\d?";
             Properties.Mask.AutoComplete = AutoCompleteType.None;
             statusBarDescription = "Enter Iban No";
         }

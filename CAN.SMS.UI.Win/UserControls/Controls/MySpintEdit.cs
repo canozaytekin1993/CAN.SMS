@@ -7,7 +7,7 @@ using DevExpress.XtraEditors;
 namespace CAN.SMS.UI.Win.UserControls.Controls
 {
     [ToolboxItem(true)]
-    public class MySpintEdit : SpinEdit,IStatusBarDescription
+    public class MySpintEdit : SpinEdit, IStatusBarDescription
     {
         public MySpintEdit()
         {

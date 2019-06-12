@@ -1,6 +1,6 @@
-﻿using DevExpress.Utils;
+﻿using System.ComponentModel;
+using DevExpress.Utils;
 using DevExpress.XtraEditors.Mask;
-using System.ComponentModel;
 
 namespace CAN.SMS.UI.Win.UserControls.Controls
 {

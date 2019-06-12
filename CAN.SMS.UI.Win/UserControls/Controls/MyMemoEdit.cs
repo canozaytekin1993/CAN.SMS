@@ -6,7 +6,7 @@ using DevExpress.XtraEditors;
 namespace CAN.SMS.UI.Win.UserControls.Controls
 {
     [ToolboxItem(true)]
-    public class MyMemoEdit : MemoEdit , IStatusBarDescription
+    public class MyMemoEdit : MemoEdit, IStatusBarDescription
     {
         public MyMemoEdit()
         {

@@ -7,7 +7,7 @@ using DevExpress.XtraEditors.Controls;
 namespace CAN.SMS.UI.Win.UserControls.Controls
 {
     [ToolboxItem(true)]
-    public class MyPictureEdit : PictureEdit , IStatusBarShortCut
+    public class MyPictureEdit : PictureEdit, IStatusBarShortCut
     {
         public MyPictureEdit()
         {
