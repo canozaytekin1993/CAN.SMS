@@ -91,10 +91,31 @@
     <Compile Include="UserControls\Controls\MyDateEdit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UserControls\Controls\MyEmailTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControls\Controls\MyFilterControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserControls\Controls\MyIbanTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\MyIdentificationNumberEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\MyMemoEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\MyPhoneNumberTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\MyPictureEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\MySimpleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\MySpintEdit.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserControls\Controls\MyTextEdit.cs">
