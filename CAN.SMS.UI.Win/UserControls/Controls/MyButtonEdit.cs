@@ -10,8 +10,6 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
     [ToolboxItem(true)]
     public class MyButtonEdit : ButtonEdit, IStatusBarShortCut
     {
-        private long? _id;
-
         public MyButtonEdit()
         {
             Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
@@ -23,6 +21,9 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
         public string statusBarDescription { get; set; }
         public string statusBarShortCut { get; set; } = "F4 :";
         public string statusBarShortCutDescription { get; set; }
+
+        #region Events
+        private long? _id;
 
         [Browsable(false)]
         public long? Id
@@ -40,6 +41,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
         }
 
         public event EventHandler<IdChangedEventArgs> IdChanged = delegate { };
+        #endregion
     }
 
     public class IdChangedEventArgs : EventArgs
