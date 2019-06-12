@@ -67,6 +67,9 @@
     <Compile Include="Interfaces\IStatusBarShortCut.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Controls\MyCodeTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControls\Controls\MyButtonEdit.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -86,6 +89,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserControls\Controls\MyDateEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\MyFilterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\MyIbanTextEdit.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserControls\Controls\MyTextEdit.cs">
