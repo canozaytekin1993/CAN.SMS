@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem41 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem21 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem42 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem43 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem22 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem44 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem45 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem23 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem23 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem46 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem47 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem24 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem24 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem48 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip25 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem49 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem25 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem25 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem50 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
@@ -111,18 +111,18 @@
             this.btnNew.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.addfile_16x16;
             this.btnNew.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.addfile_32x32;
             this.btnNew.Name = "btnNew";
-            toolTipTitleItem1.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
-            toolTipTitleItem1.Text = "( Ctrl+Insert)";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "New Card";
-            toolTipTitleItem2.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
-            toolTipTitleItem2.LeftIndent = 6;
-            toolTipTitleItem2.Text = "Opens form in new card insert mode";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            superToolTip1.Items.Add(toolTipSeparatorItem1);
-            superToolTip1.Items.Add(toolTipTitleItem2);
-            this.btnNew.SuperTip = superToolTip1;
+            toolTipTitleItem41.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
+            toolTipTitleItem41.Text = "( Ctrl+Insert)";
+            toolTipItem21.LeftIndent = 6;
+            toolTipItem21.Text = "New Card";
+            toolTipTitleItem42.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
+            toolTipTitleItem42.LeftIndent = 6;
+            toolTipTitleItem42.Text = "Opens form in new card insert mode";
+            superToolTip21.Items.Add(toolTipTitleItem41);
+            superToolTip21.Items.Add(toolTipItem21);
+            superToolTip21.Items.Add(toolTipSeparatorItem21);
+            superToolTip21.Items.Add(toolTipTitleItem42);
+            this.btnNew.SuperTip = superToolTip21;
             // 
             // btnSave
             // 
@@ -132,18 +132,18 @@
             this.btnSave.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.save_32x32;
             this.btnSave.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F2);
             this.btnSave.Name = "btnSave";
-            toolTipTitleItem3.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
-            toolTipTitleItem3.Text = "( F2 )";
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "Save";
-            toolTipTitleItem4.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
-            toolTipTitleItem4.LeftIndent = 6;
-            toolTipTitleItem4.Text = "Changes to the form are saved to the database with your approval";
-            superToolTip2.Items.Add(toolTipTitleItem3);
-            superToolTip2.Items.Add(toolTipItem2);
-            superToolTip2.Items.Add(toolTipSeparatorItem2);
-            superToolTip2.Items.Add(toolTipTitleItem4);
-            this.btnSave.SuperTip = superToolTip2;
+            toolTipTitleItem43.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
+            toolTipTitleItem43.Text = "( F2 )";
+            toolTipItem22.LeftIndent = 6;
+            toolTipItem22.Text = "Save";
+            toolTipTitleItem44.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
+            toolTipTitleItem44.LeftIndent = 6;
+            toolTipTitleItem44.Text = "Changes to the form are saved to the database with your approval";
+            superToolTip22.Items.Add(toolTipTitleItem43);
+            superToolTip22.Items.Add(toolTipItem22);
+            superToolTip22.Items.Add(toolTipSeparatorItem22);
+            superToolTip22.Items.Add(toolTipTitleItem44);
+            this.btnSave.SuperTip = superToolTip22;
             // 
             // btnBack
             // 
@@ -152,18 +152,18 @@
             this.btnBack.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.reset_16x16;
             this.btnBack.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.reset_32x32;
             this.btnBack.Name = "btnBack";
-            toolTipTitleItem5.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
-            toolTipTitleItem5.Text = "( Ctrl + Z )";
-            toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "Back";
-            toolTipTitleItem6.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
-            toolTipTitleItem6.LeftIndent = 6;
-            toolTipTitleItem6.Text = "Changes to the data in the form are undone and the opening data is loaded";
-            superToolTip3.Items.Add(toolTipTitleItem5);
-            superToolTip3.Items.Add(toolTipItem3);
-            superToolTip3.Items.Add(toolTipSeparatorItem3);
-            superToolTip3.Items.Add(toolTipTitleItem6);
-            this.btnBack.SuperTip = superToolTip3;
+            toolTipTitleItem45.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
+            toolTipTitleItem45.Text = "( Ctrl + Z )";
+            toolTipItem23.LeftIndent = 6;
+            toolTipItem23.Text = "Back";
+            toolTipTitleItem46.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
+            toolTipTitleItem46.LeftIndent = 6;
+            toolTipTitleItem46.Text = "Changes to the data in the form are undone and the opening data is loaded";
+            superToolTip23.Items.Add(toolTipTitleItem45);
+            superToolTip23.Items.Add(toolTipItem23);
+            superToolTip23.Items.Add(toolTipSeparatorItem23);
+            superToolTip23.Items.Add(toolTipTitleItem46);
+            this.btnBack.SuperTip = superToolTip23;
             // 
             // btnDelete
             // 
@@ -172,19 +172,19 @@
             this.btnDelete.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.deletelist_16x16;
             this.btnDelete.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.deletelist_32x32;
             this.btnDelete.Name = "btnDelete";
-            toolTipTitleItem7.Text = "( Ctrl+Delete )";
-            toolTipItem4.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "Delete";
-            toolTipTitleItem8.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
-            toolTipTitleItem8.LeftIndent = 6;
-            toolTipTitleItem8.Text = "The record you are working on is deleted from the database with your confirmation" +
+            toolTipTitleItem47.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
+            toolTipTitleItem47.Text = "( Ctrl+Delete )";
+            toolTipItem24.LeftIndent = 6;
+            toolTipItem24.Text = "Delete";
+            toolTipTitleItem48.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
+            toolTipTitleItem48.LeftIndent = 6;
+            toolTipTitleItem48.Text = "The record you are working on is deleted from the database with your confirmation" +
     "";
-            superToolTip4.Items.Add(toolTipTitleItem7);
-            superToolTip4.Items.Add(toolTipItem4);
-            superToolTip4.Items.Add(toolTipSeparatorItem4);
-            superToolTip4.Items.Add(toolTipTitleItem8);
-            this.btnDelete.SuperTip = superToolTip4;
+            superToolTip24.Items.Add(toolTipTitleItem47);
+            superToolTip24.Items.Add(toolTipItem24);
+            superToolTip24.Items.Add(toolTipSeparatorItem24);
+            superToolTip24.Items.Add(toolTipTitleItem48);
+            this.btnDelete.SuperTip = superToolTip24;
             // 
             // btnExit
             // 
@@ -194,18 +194,18 @@
             this.btnExit.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.close_32x32;
             this.btnExit.Name = "btnExit";
             this.btnExit.ShortcutKeyDisplayString = "Esc";
-            toolTipTitleItem9.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
-            toolTipTitleItem9.Text = "( Esc )";
-            toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "Exit";
-            toolTipTitleItem10.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
-            toolTipTitleItem10.LeftIndent = 6;
-            toolTipTitleItem10.Text = "Form is closed with your approval";
-            superToolTip5.Items.Add(toolTipTitleItem9);
-            superToolTip5.Items.Add(toolTipItem5);
-            superToolTip5.Items.Add(toolTipSeparatorItem5);
-            superToolTip5.Items.Add(toolTipTitleItem10);
-            this.btnExit.SuperTip = superToolTip5;
+            toolTipTitleItem49.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
+            toolTipTitleItem49.Text = "( Esc )";
+            toolTipItem25.LeftIndent = 6;
+            toolTipItem25.Text = "Exit";
+            toolTipTitleItem50.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
+            toolTipTitleItem50.LeftIndent = 6;
+            toolTipTitleItem50.Text = "Form is closed with your approval";
+            superToolTip25.Items.Add(toolTipTitleItem49);
+            superToolTip25.Items.Add(toolTipItem25);
+            superToolTip25.Items.Add(toolTipSeparatorItem25);
+            superToolTip25.Items.Add(toolTipTitleItem50);
+            this.btnExit.SuperTip = superToolTip25;
             // 
             // statusBarInfo
             // 
@@ -264,8 +264,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 452);
-            this.Controls.Add(this.ribbonStatusBar1);
-            this.Controls.Add(this.ribbonControl);
             this.MinimizeBox = false;
             this.Name = "BaseCardForm";
             this.Ribbon = this.ribbonControl;
@@ -293,5 +291,6 @@
         private DevExpress.XtraBars.BarStaticItem statusBarInfo;
         private DevExpress.XtraBars.BarStaticItem statusShortCut;
         private DevExpress.XtraBars.BarStaticItem statusShortCutInfo;
+        //private UserControls.Controls.MyButtonEdit myButtonEdit1;
     }
 }

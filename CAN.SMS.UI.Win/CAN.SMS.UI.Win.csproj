@@ -63,6 +63,8 @@
     <Compile Include="Forms\BaseForms\BaseCardsForm.Designer.cs">
       <DependentUpon>BaseCardsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IStatusBarDescription.cs" />
+    <Compile Include="Interfaces\IStatusBarShortCut.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\Controls\MyButtonEdit.cs">
