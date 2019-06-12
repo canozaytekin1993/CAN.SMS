@@ -173,5 +173,8 @@
   <ItemGroup>
     <None Include="Resources\comment_32x32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControls\Controls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
