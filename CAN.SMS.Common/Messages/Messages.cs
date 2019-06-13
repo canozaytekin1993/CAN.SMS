@@ -1,5 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using System.Windows.Form;
+﻿using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace CAN.SMS.Common.Messages
 {
@@ -7,7 +7,7 @@ namespace CAN.SMS.Common.Messages
     {
         public static void ErrorMessage(string errorMessage)
         {
-            XtraMessageBox.Show(errorMessage,"Error",new System.Windows.Forms.MessageBoxButtons());
+            XtraMessageBox.Show(errorMessage,"Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
     }
 }

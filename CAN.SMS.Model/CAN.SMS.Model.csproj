@@ -45,6 +45,7 @@
     <Compile Include="Entities\Base\BaseActionEntity.cs" />
     <Compile Include="Entities\Base\BaseEntity.cs" />
     <Compile Include="Entities\Base\BaseEntityStatu.cs" />
+    <Compile Include="Entities\Base\Interfaces\IBaseEntity.cs" />
     <Compile Include="Entities\County.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\School.cs" />

@@ -57,6 +57,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CAN.SMS.Common\CAN.SMS.Common.csproj">
+      <Project>{05a35eca-5254-425f-a5e3-b474487e97d3}</Project>
+      <Name>CAN.SMS.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
