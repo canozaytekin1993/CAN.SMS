@@ -99,7 +99,7 @@
             this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowQatLocationSelector = false;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(572, 102);
+            this.ribbonControl.Size = new System.Drawing.Size(562, 102);
             this.ribbonControl.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
@@ -252,7 +252,7 @@
             this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 421);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(572, 31);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(562, 31);
             // 
             // ribbonPage2
             // 
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 452);
+            this.ClientSize = new System.Drawing.Size(562, 452);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl);
             this.MinimizeBox = false;
@@ -279,8 +279,6 @@
         }
 
         #endregion
-
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
@@ -293,5 +291,6 @@
         private DevExpress.XtraBars.BarStaticItem statusBarInfo;
         private DevExpress.XtraBars.BarStaticItem statusShortCut;
         private DevExpress.XtraBars.BarStaticItem statusShortCutInfo;
+        protected DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
     }
 }

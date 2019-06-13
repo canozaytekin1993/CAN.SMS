@@ -46,7 +46,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
             grp.OptionsTableLayoutGroup.ColumnDefinitions.Add(new ColumnDefinition
             {
                 SizeType = SizeType.Absolute,
-                Width = 90
+                Width = 99
             });
 
             grp.OptionsTableLayoutGroup.RowDefinitions.Clear();
@@ -59,7 +59,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
                     Height = 24
                 });
 
-                if (i - 1 != 9) continue;
+                if (i + 1 != 9) continue;
                 grp.OptionsTableLayoutGroup.RowDefinitions.Add(new RowDefinition
                 {
                     SizeType = SizeType.Percent,
