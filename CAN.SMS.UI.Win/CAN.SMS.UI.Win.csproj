@@ -131,6 +131,12 @@
     <Compile Include="UserControls\Controls\MyToggleSwitch.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UserControls\Controls\Navigators\InsUpNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Controls\Navigators\InsUpNavigator.Designer.cs">
+      <DependentUpon>InsUpNavigator.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\BaseForms\BaseCardForm.resx">
       <DependentUpon>BaseCardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +154,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\Controls\Navigators\InsUpNavigator.resx">
+      <DependentUpon>InsUpNavigator.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -239,6 +248,23 @@
   <ItemGroup>
     <None Include="Resources\comment_32x32.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\doublenext_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doubleprev_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\first_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\last_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prev_16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
