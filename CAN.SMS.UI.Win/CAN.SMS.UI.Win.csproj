@@ -75,6 +75,9 @@
     <Compile Include="Interfaces\IStatusBarShortCut.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Controls\Grid\MyBandedGridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControls\Controls\Grid\MyGridControl.cs">
       <SubType>Component</SubType>
     </Compile>
