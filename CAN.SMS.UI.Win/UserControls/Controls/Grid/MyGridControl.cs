@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel;
+using System.Drawing;
 using CAN.SMS.UI.Win.Interfaces;
 using DevExpress.Utils;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Mask;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Registrator;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using System.Drawing;
-using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraGrid.Registrator;
 
 namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
 {
@@ -18,7 +18,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
     {
         protected override BaseView CreateDefaultView()
         {
-            var view = (GridView)CreateView("MyGridView");
+            var view = (GridView) CreateView("MyGridView");
 
             view.Appearance.ViewCaption.ForeColor = Color.Maroon;
             view.Appearance.HeaderPanel.ForeColor = Color.Maroon;
@@ -43,13 +43,13 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
             view.OptionsView.RowAutoHeight = true;
             view.OptionsView.HeaderFilterButtonShowMode = FilterButtonShowMode.Button;
 
-            var idColumn = new MyGridColumn { Caption = "Id", FieldName = "Id" };
+            var idColumn = new MyGridColumn {Caption = "Id", FieldName = "Id"};
             idColumn.OptionsColumn.AllowEdit = false;
             idColumn.Visible = false;
             idColumn.OptionsColumn.ShowInCustomizationForm = false;
             view.Columns.Add(idColumn);
 
-            var codeColumn = new MyGridColumn { Caption = "Code", FieldName = "Code" };
+            var codeColumn = new MyGridColumn {Caption = "Code", FieldName = "Code"};
             idColumn.OptionsColumn.AllowEdit = false;
             idColumn.AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
             idColumn.AppearanceCell.Options.UseTextOptions = true;
@@ -67,23 +67,23 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
         public class MyGridInfoRegistrator : GridInfoRegistrator
         {
             public override string ViewName => "MyGridView";
-            public override BaseView CreateView(GridControl grid) => new MyGridView(grid);
+
+            public override BaseView CreateView(GridControl grid)
+            {
+                return new MyGridView(grid);
+            }
         }
     }
 
     public class MyGridView : GridView, IStatusBarShortCut
     {
-        #region Properties
+        public MyGridView()
+        {
+        }
 
-        public string statusBarDescription { get; set; }
-        public string statusBarShortCut { get; set; }
-        public string statusBarShortCutDescription { get; set; }
-
-        #endregion
-
-        public MyGridView() { }
-
-        public MyGridView(GridControl overGrid) : base(overGrid) { }
+        public MyGridView(GridControl overGrid) : base(overGrid)
+        {
+        }
 
         protected override void OnColumnChangedCore(GridColumn column)
         {
@@ -93,7 +93,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
             if (column.ColumnEdit.GetType() == typeof(RepositoryItemDateEdit))
             {
                 column.AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
-                ((RepositoryItemDateEdit)column.ColumnEdit).Mask.MaskType = MaskType.DateTimeAdvancingCaret;
+                ((RepositoryItemDateEdit) column.ColumnEdit).Mask.MaskType = MaskType.DateTimeAdvancingCaret;
             }
         }
 
@@ -104,7 +104,10 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
 
         public class MyGridColumnCollection : GridColumnCollection
         {
-            public MyGridColumnCollection(ColumnView view) : base(view) { }
+            public MyGridColumnCollection(ColumnView view) : base(view)
+            {
+            }
+
             protected override GridColumn CreateColumn()
             {
                 var column = new MyGridColumn();
@@ -112,6 +115,14 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
                 return column;
             }
         }
+
+        #region Properties
+
+        public string statusBarDescription { get; set; }
+        public string statusBarShortCut { get; set; }
+        public string statusBarShortCutDescription { get; set; }
+
+        #endregion
     }
 
     public class MyGridColumn : GridColumn, IStatusBarShortCut

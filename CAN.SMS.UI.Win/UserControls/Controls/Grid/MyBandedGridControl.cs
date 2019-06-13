@@ -1,4 +1,6 @@
-﻿using CAN.SMS.UI.Win.Interfaces;
+﻿using System.ComponentModel;
+using System.Drawing;
+using CAN.SMS.UI.Win.Interfaces;
 using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Mask;
@@ -8,8 +10,6 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Registrator;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraGrid.Views.Base;
-using System.ComponentModel;
-using System.Drawing;
 
 namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
 {
@@ -18,7 +18,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
     {
         protected override BaseView CreateDefaultView()
         {
-            var view = (MyBandedGridView)CreateView("MyBandedGridView");
+            var view = (MyBandedGridView) CreateView("MyBandedGridView");
 
             view.Appearance.BandPanel.ForeColor = Color.DarkBlue;
             view.Appearance.BandPanel.Font = new Font(new FontFamily("Tahoma"), 8.25f, FontStyle.Bold);
@@ -62,8 +62,9 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
                     Caption = "Code",
                     FieldName = "Code",
                     Visible = true,
-                    OptionsColumn = { AllowEdit = false},
-                    AppearanceCell = { TextOptions = { HAlignment = HorzAlignment.Center},Options = {UseTextOptions = true}}
+                    OptionsColumn = {AllowEdit = false},
+                    AppearanceCell =
+                        {TextOptions = {HAlignment = HorzAlignment.Center}, Options = {UseTextOptions = true}}
                 }
             };
 
@@ -80,23 +81,23 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
         public class MyBandedGridInfoRegistrator : BandedGridInfoRegistrator
         {
             public override string ViewName => "MyBandedGridView";
-            public override BaseView CreateView(GridControl grid) => new MyBandedGridView(grid);
+
+            public override BaseView CreateView(GridControl grid)
+            {
+                return new MyBandedGridView(grid);
+            }
         }
     }
 
     public class MyBandedGridView : BandedGridView, IStatusBarShortCut
     {
-        #region Properties
+        public MyBandedGridView()
+        {
+        }
 
-        public string statusBarDescription { get; set; }
-        public string statusBarShortCut { get; set; }
-        public string statusBarShortCutDescription { get; set; }
-
-        #endregion
-
-        public MyBandedGridView() { }
-
-        public MyBandedGridView(GridControl ownerGrid) : base(ownerGrid) { }
+        public MyBandedGridView(GridControl ownerGrid) : base(ownerGrid)
+        {
+        }
 
         protected override void OnColumnChangedCore(GridColumn column)
         {
@@ -106,7 +107,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
             if (column.ColumnEdit.GetType() == typeof(RepositoryItemDateEdit))
             {
                 column.AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
-                ((RepositoryItemDateEdit)column.ColumnEdit).Mask.MaskType = MaskType.DateTimeAdvancingCaret;
+                ((RepositoryItemDateEdit) column.ColumnEdit).Mask.MaskType = MaskType.DateTimeAdvancingCaret;
             }
         }
 
@@ -117,7 +118,10 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
 
         public class MyGridColumnCollection : BandedGridColumnCollection
         {
-            public MyGridColumnCollection(MyBandedGridView view) : base(view) { }
+            public MyGridColumnCollection(MyBandedGridView view) : base(view)
+            {
+            }
+
             protected override GridColumn CreateColumn()
             {
                 var column = new MyBandedGridColumn();
@@ -125,6 +129,14 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
                 return column;
             }
         }
+
+        #region Properties
+
+        public string statusBarDescription { get; set; }
+        public string statusBarShortCut { get; set; }
+        public string statusBarShortCutDescription { get; set; }
+
+        #endregion
     }
 
     public class MyBandedGridColumn : BandedGridColumn, IStatusBarShortCut
