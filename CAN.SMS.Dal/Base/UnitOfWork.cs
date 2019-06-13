@@ -1,9 +1,9 @@
-﻿using CAN.SMS.Common.Messages;
-using CAN.SMS.Dal.Interfaces;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
+using CAN.SMS.Common.Messages;
+using CAN.SMS.Dal.Interfaces;
 
 namespace CAN.SMS.Dal.Base
 {
@@ -22,6 +22,7 @@ namespace CAN.SMS.Dal.Base
         }
 
         public IRepository<T> Rep => new Repository<T>(_context);
+
         public bool Save()
         {
             try
@@ -30,7 +31,7 @@ namespace CAN.SMS.Dal.Base
             }
             catch (DbUpdateException ex)
             {
-                var sqlEx = (SqlException)ex.InnerException?.InnerException;
+                var sqlEx = (SqlException) ex.InnerException?.InnerException;
                 if (sqlEx == null)
                 {
                     Messages.ErrorMessage(ex.Message);
@@ -73,7 +74,7 @@ namespace CAN.SMS.Dal.Base
 
         #region Dispose
 
-        private bool _disposedValue = false;
+        private bool _disposedValue;
 
         public void Dispose()
         {
@@ -85,10 +86,7 @@ namespace CAN.SMS.Dal.Base
         {
             if (!_disposedValue)
             {
-                if (dispossing)
-                {
-                    _context.Dispose();
-                }
+                if (dispossing) _context.Dispose();
 
                 _disposedValue = true;
             }

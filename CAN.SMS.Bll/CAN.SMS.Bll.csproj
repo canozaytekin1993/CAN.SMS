@@ -51,14 +51,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseBll.cs" />
+    <Compile Include="Functions\Converts.cs" />
     <Compile Include="Functions\GeneralFunctions.cs" />
+    <Compile Include="General\SchoolBll.cs" />
     <Compile Include="Interfaces\IBaseBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CAN.SMS.Common\CAN.SMS.Common.csproj">
+      <Project>{05A35ECA-5254-425F-A5E3-B474487E97D3}</Project>
+      <Name>CAN.SMS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CAN.SMS.Dal\CAN.SMS.Dal.csproj">
       <Project>{30F3625B-35F6-418B-9FF9-038EABA46EDD}</Project>
       <Name>CAN.SMS.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CAN.SMS.Data\CAN.SMS.Data.csproj">
+      <Project>{A83B576C-6BCD-4613-878D-AD2684A608FA}</Project>
+      <Name>CAN.SMS.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\CAN.SMS.Model\CAN.SMS.Model.csproj">
       <Project>{53C25629-DC99-4D29-BEB9-53B4F4562130}</Project>

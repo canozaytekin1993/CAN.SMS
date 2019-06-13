@@ -7,7 +7,24 @@ namespace CAN.SMS.Common.Messages
     {
         public static void ErrorMessage(string errorMessage)
         {
-            XtraMessageBox.Show(errorMessage,"Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            XtraMessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static DialogResult TrueSelectYesNo(string message, string title)
+        {
+            return XtraMessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1);
+        }
+
+        public static DialogResult NoSelectYesNo(string message, string title)
+        {
+            return XtraMessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+        }
+
+        public static DialogResult DeleteMessage(string CardName)
+        {
+            return NoSelectYesNo($"{CardName} deleted. Do you confirm ?", "Delete confirmation");
         }
     }
 }

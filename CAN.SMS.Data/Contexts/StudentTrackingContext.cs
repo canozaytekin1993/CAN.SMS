@@ -1,6 +1,6 @@
-using CAN.SMS.Data.StudentTrackingMigration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using CAN.SMS.Data.StudentTrackingMigration;
 using CAN.SMS.Model.Entities;
 
 namespace CAN.SMS.Data.Contexts

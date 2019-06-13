@@ -1,21 +1,14 @@
-﻿using CAN.SMS.Dal.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using CAN.SMS.Dal.Interfaces;
 
 namespace CAN.SMS.Dal.Base
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        #region Variables
-
-        private readonly DbContext _context;
-        private readonly DbSet<T> _dbSet;
-
-        #endregion
-
         public Repository(DbContext context)
         {
             if (context == null) return;
@@ -62,27 +55,33 @@ namespace CAN.SMS.Dal.Base
 
         public TResult Find<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> selector)
         {
-            return filter == null ? _dbSet.Select(selector).FirstOrDefault() :
-            _dbSet.Where(filter).Select(selector).FirstOrDefault();
+            return filter == null
+                ? _dbSet.Select(selector).FirstOrDefault()
+                : _dbSet.Where(filter).Select(selector).FirstOrDefault();
         }
 
-        public IQueryable<TResult> Select<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> selector)
+        public IQueryable<TResult> Select<TResult>(Expression<Func<T, bool>> filter,
+            Expression<Func<T, TResult>> selector)
         {
             return filter == null ? _dbSet.Select(selector) : _dbSet.Where(filter).Select(selector);
         }
 
+        #region Variables
+
+        private readonly DbContext _context;
+        private readonly DbSet<T> _dbSet;
+
+        #endregion
+
         #region IDisposable Support
 
-        private bool _disposedValue = false; // to detact redundent calls
+        private bool _disposedValue; // to detact redundent calls
 
         public void Dispose(bool dispossing)
         {
             if (!_disposedValue)
             {
-                if (dispossing)
-                {
-                    _context.Dispose();
-                }
+                if (dispossing) _context.Dispose();
 
                 _disposedValue = true;
             }

@@ -15,6 +15,6 @@ namespace CAN.SMS.Dal.Interfaces
         void Delete(T entity);
         void Delete(IEnumerable<T> entities);
         TResult Find<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> select);
-        IQueryable<TResult> Select<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T,TResult>> select);
+        IQueryable<TResult> Select<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> select);
     }
 }
