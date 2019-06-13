@@ -1,5 +1,4 @@
 ﻿using CAN.SMS.Model.Entities.Base;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CAN.SMS.Model.Entities
 {
