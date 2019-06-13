@@ -1,4 +1,5 @@
 ﻿using CAN.SMS.Model.Entities.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CAN.SMS.Model.Entities
 {
@@ -8,5 +9,8 @@ namespace CAN.SMS.Model.Entities
         public long CountryId { get; set; }
         public long CountyId { get; set; }
         public string Description { get; set; }
+
+        public Country Country { get; set; }
+        public County County { get; set; }
     }
 }
