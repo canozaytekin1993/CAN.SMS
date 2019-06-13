@@ -46,7 +46,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 19.1\Components\Bin\Framework\DevExpress.XtraLayout.v19.1.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -82,6 +89,12 @@
     </Compile>
     <Compile Include="Forms\SchoolForms\SchoolCards.Designer.cs">
       <DependentUpon>SchoolCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralForm\HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneralForm\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IStatusBarDescription.cs" />
     <Compile Include="Interfaces\IStatusBarShortCut.cs" />
@@ -183,6 +196,9 @@
     <EmbeddedResource Include="Forms\SchoolForms\SchoolCards.resx">
       <DependentUpon>SchoolCards.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GeneralForm\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -203,6 +219,7 @@
     <EmbeddedResource Include="UserControls\Controls\Navigators\SmallNavigator.resx">
       <DependentUpon>SmallNavigator.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -347,6 +364,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\article_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CAN.SMS.Bll\CAN.SMS.Bll.csproj">
+      <Project>{2A7B2C98-B9AF-4380-A9C5-18FFA3423B8B}</Project>
+      <Name>CAN.SMS.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CAN.SMS.Model\CAN.SMS.Model.csproj">
+      <Project>{53C25629-DC99-4D29-BEB9-53B4F4562130}</Project>
+      <Name>CAN.SMS.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

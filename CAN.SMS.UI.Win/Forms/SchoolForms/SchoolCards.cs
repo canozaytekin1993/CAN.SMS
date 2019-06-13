@@ -1,4 +1,5 @@
-﻿using CAN.SMS.UI.Win.Forms.BaseForms;
+﻿using CAN.SMS.Bll.General;
+using CAN.SMS.UI.Win.Forms.BaseForms;
 
 namespace CAN.SMS.UI.Win.Forms.SchoolForms
 {
@@ -7,6 +8,8 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
         public SchoolCards()
         {
             InitializeComponent();
+            SchoolBll bll = new SchoolBll();
+            grid.DataSource = (bll.List(null));
         }
     }
 }

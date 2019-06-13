@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CAN.SMS.UI.Win.GeneralForm;
+using System;
 using System.Windows.Forms;
-using CAN.SMS.UI.Win.Forms.SchoolForms;
 
 namespace CAN.SMS.UI.Win
 {
@@ -14,7 +14,7 @@ namespace CAN.SMS.UI.Win
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SchoolCards());
+            Application.Run(new HomeForm());
         }
     }
 }

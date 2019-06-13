@@ -6,6 +6,7 @@ using CAN.SMS.Model.Entities;
 using CAN.SMS.Model.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Forms;
 
@@ -47,7 +48,7 @@ namespace CAN.SMS.Bll.General
                 CountryName = x.Country.CountryName,
                 CountyName = x.County.CountyName,
                 Description = x.Description
-            });
+            }).OrderBy(x => x.Code).ToList();
         }
 
         public bool Insert(BaseEntity entity)
