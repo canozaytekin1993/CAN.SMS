@@ -180,6 +180,9 @@
     <EmbeddedResource Include="Forms\SchoolForms\SchoolCard.resx">
       <DependentUpon>SchoolCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SchoolForms\SchoolCards.resx">
+      <DependentUpon>SchoolCards.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -339,6 +342,11 @@
   <ItemGroup>
     <None Include="Resources\prev_16x162.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\article_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\article_32x32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -45,7 +45,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
 
             var idColumn = new MyGridColumn { Caption = "Id", FieldName = "Id" };
             idColumn.OptionsColumn.AllowEdit = false;
-            idColumn.Visible = true;
+            idColumn.Visible = false;
             idColumn.OptionsColumn.ShowInCustomizationForm = false;
             view.Columns.Add(idColumn);
 
