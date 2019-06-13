@@ -1,9 +1,10 @@
-﻿using CAN.SMS.Model.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using CAN.SMS.Model.Entities;
 using CAN.SMS.Model.Entities.Base;
 
 namespace CAN.SMS.Model.Dto
 {
-    // Attribute
+    [NotMapped]
     public class SchoolS : School
     {
         public string CountryName { get; set; }
