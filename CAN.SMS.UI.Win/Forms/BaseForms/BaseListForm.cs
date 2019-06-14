@@ -17,19 +17,12 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         #region Protected
 
         protected IBaseFormShow FormShow;
-
         protected CardType cardType;
-
-        protected internal GridView table;
-
+        protected internal GridView Table;
         protected bool activeCardShow;
-
         protected internal bool multiSelect;
-
         protected internal BaseEntity selectedEntity;
-
         protected IBaseBll bll;
-
         protected ControlNavigator navigator;
 
         #endregion
@@ -43,25 +36,22 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         {
             // Button Events
             foreach (BarItem button in ribbonControl.Items)
-            {
                 button.ItemClick += Button_ItemClick;
-            }
 
             // Table Events
-            table.DoubleClick += Table_DoubleClick;
-            table.KeyDown += Table_KeyDown;
+            Table.DoubleClick += Table_DoubleClick;
+            Table.KeyDown += Table_KeyDown;
 
             // Form Events
-
         }
 
-        protected internal void Load()
+        protected internal void Loading()
         {
             VariableFill();
             EventsLoad();
 
-            table.OptionsSelection.MultiSelect = multiSelect;
-            navigator.NavigatableControl = table.GridControl;
+            Table.OptionsSelection.MultiSelect = multiSelect;
+            navigator.NavigatableControl = Table.GridControl;
 
             Cursor.Current = Cursors.WaitCursor;
             Lists();
@@ -77,10 +67,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             var result = FormShow.ShowDialogEditForm(cardType, id);
         }
 
-        private void EntityDelete()
-        {
-            throw new NotImplementedException();
-        }
+        private void EntityDelete() { }
 
         private void SelectEntity()
         {
@@ -90,32 +77,20 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
             else
             {
-                selectedEntity = table.GetRow<BaseEntity>();
+                selectedEntity = Table.GetRow<BaseEntity>();
             }
 
             DialogResult = DialogResult.OK;
             Close();
         }
 
-        private void RefreshEntity()
-        {
-            throw new NotImplementedException();
-        }
+        private void RefreshEntity() { }
 
-        private void FilterEntity()
-        {
-            throw new NotImplementedException();
-        }
+        private void FilterEntity() { }
 
-        private void Print()
-        {
-            throw new NotImplementedException();
-        }
+        private void Print() { }
 
-        private void FormCaptionSetting()
-        {
-            throw new NotImplementedException();
-        }
+        private void FormCaptionSetting() { }
 
         private void ProcessTypeChoose()
         {
@@ -126,15 +101,9 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                 btnEdit.PerformClick();
         }
 
-        protected virtual void VariableFill()
-        {
-            throw new NotImplementedException();
-        }
+        protected virtual void VariableFill() { }
 
-        protected virtual void Lists()
-        {
-            throw new NotImplementedException();
-        }
+        protected virtual void Lists() { }
 
         #endregion
 
@@ -176,7 +145,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
             else if (e.Item == btnEdit)
             {
-                ShowEditForm(table.GetRowId());
+                ShowEditForm(Table.GetRowId());
             }
             else if (e.Item == btnDelete)
             {
@@ -196,15 +165,10 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
             else if (e.Item == btnColumns)
             {
-                if (table.CustomizationForm == null)
-                {
-                    table.ShowCustomization();
-                }
+                if (Table.CustomizationForm == null)
+                    Table.ShowCustomization();
                 else
-                {
-                    table.HideCustomization();
-                    ;
-                }
+                    Table.HideCustomization();
             }
             else if (e.Item == btnPrint)
             {
@@ -241,7 +205,6 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                 case Keys.Escape:
                     Close();
                     break;
-
             }
         }
 

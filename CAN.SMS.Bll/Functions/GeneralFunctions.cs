@@ -10,7 +10,7 @@ namespace CAN.SMS.Bll.Functions
 {
     public static class GeneralFunctions
     {
-        public static IList<string> changeColumnGet<T>(this T oldEntity, T currentEntity)
+        public static IList<string> ChangeColumnGet<T>(this T oldEntity, T currentEntity)
         {
             IList<string> columns = new List<string>();
 

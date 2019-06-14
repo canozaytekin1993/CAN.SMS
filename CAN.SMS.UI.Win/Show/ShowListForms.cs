@@ -14,7 +14,7 @@ namespace CAN.SMS.UI.Win.Show
             var frm = (TForm)Activator.CreateInstance(typeof(TForm));
             frm.MdiParent = Form.ActiveForm;
 
-            frm.Load();
+            frm.Loading();
             frm.Show();
         }
     }

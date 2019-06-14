@@ -13,7 +13,6 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
         public SchoolEditForm()
         {
             InitializeComponent();
-
             dataLayoutControl = myDataLayoutControl;
             bll = new SchoolBll(myDataLayoutControl);
             cardType = CardType.School;

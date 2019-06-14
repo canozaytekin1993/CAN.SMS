@@ -17,7 +17,7 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
 
         protected override void VariableFill()
         {
-            table = table;
+            Table = table;
             cardType = CardType.School;
             FormShow = new ShowEditForms<SchoolEditForm>();
             navigator = longNavigator.Navigator;

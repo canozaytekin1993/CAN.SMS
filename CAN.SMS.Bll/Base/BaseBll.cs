@@ -62,7 +62,7 @@ namespace CAN.SMS.Bll.Base
         {
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _ww);
             // Validation
-            var changeColumn = oldEntity.changeColumnGet(currentEntity);
+            var changeColumn = oldEntity.ChangeColumnGet(currentEntity);
             if (changeColumn.Count == 0) return true;
             _ww.Rep.Update(currentEntity.EntityConvert<T>(), changeColumn);
             return _ww.Save();
