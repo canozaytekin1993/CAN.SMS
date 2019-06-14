@@ -90,8 +90,7 @@
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.ControlNavigator Navigator;
         private DevExpress.Utils.ImageCollection ImageCollection;
+        public DevExpress.XtraEditors.ControlNavigator Navigator;
     }
 }

@@ -14,13 +14,9 @@ namespace CAN.SMS.Bll.General
 {
     public class SchoolBll : BaseBll<School, StudentTrackingContext>
     {
-        public SchoolBll()
-        {
-        }
+        public SchoolBll() { }
 
-        protected SchoolBll(Control ctrl) : base(ctrl)
-        {
-        }
+        public SchoolBll(Control ctrl) : base(ctrl) { }
 
         public BaseEntity Single(Expression<Func<School, bool>> filter)
         {

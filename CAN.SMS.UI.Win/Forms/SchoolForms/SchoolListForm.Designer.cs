@@ -36,7 +36,7 @@
             this.colCountryName = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridColumn();
             this.colCountyName = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridColumn();
             this.colDescription = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridColumn();
-            this.longNavigator1 = new CAN.SMS.UI.Win.UserControls.Controls.Navigators.LongNavigator();
+            this.longNavigator = new CAN.SMS.UI.Win.UserControls.Controls.Navigators.LongNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
@@ -182,25 +182,25 @@
             this.colDescription.VisibleIndex = 4;
             this.colDescription.Width = 450;
             // 
-            // longNavigator1
+            // longNavigator
             // 
-            this.longNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.longNavigator1.Location = new System.Drawing.Point(0, 449);
-            this.longNavigator1.Name = "longNavigator1";
-            this.longNavigator1.Size = new System.Drawing.Size(1123, 24);
-            this.longNavigator1.TabIndex = 3;
+            this.longNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.longNavigator.Location = new System.Drawing.Point(0, 449);
+            this.longNavigator.Name = "longNavigator";
+            this.longNavigator.Size = new System.Drawing.Size(1123, 24);
+            this.longNavigator.TabIndex = 3;
             // 
-            // SchoolCards
+            // SchoolListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 504);
             this.Controls.Add(this.grid);
-            this.Controls.Add(this.longNavigator1);
-            this.Name = "SchoolCards";
+            this.Controls.Add(this.longNavigator);
+            this.Name = "SchoolListForm";
             this.Text = "School Cards";
             this.Controls.SetChildIndex(this.ribbonControl, 0);
-            this.Controls.SetChildIndex(this.longNavigator1, 0);
+            this.Controls.SetChildIndex(this.longNavigator, 0);
             this.Controls.SetChildIndex(this.grid, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
@@ -216,7 +216,7 @@
         private UserControls.Controls.Grid.MyGridView table;
         private UserControls.Controls.Grid.MyGridColumn colId;
         private UserControls.Controls.Grid.MyGridColumn colCode;
-        private UserControls.Controls.Navigators.LongNavigator longNavigator1;
+        private UserControls.Controls.Navigators.LongNavigator longNavigator;
         private UserControls.Controls.Grid.MyGridColumn colSchoolName;
         private UserControls.Controls.Grid.MyGridColumn colCountryName;
         private UserControls.Controls.Grid.MyGridColumn colCountyName;

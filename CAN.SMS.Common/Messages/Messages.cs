@@ -10,6 +10,11 @@ namespace CAN.SMS.Common.Messages
             XtraMessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public static void WarningMessage(string errorMessage)
+        {
+            XtraMessageBox.Show(errorMessage, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         public static DialogResult TrueSelectYesNo(string message, string title)
         {
             return XtraMessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
@@ -25,6 +30,11 @@ namespace CAN.SMS.Common.Messages
         public static DialogResult DeleteMessage(string CardName)
         {
             return NoSelectYesNo($"{CardName} deleted. Do you confirm ?", "Delete confirmation");
+        }
+
+        public static void CardNotChooseWarningMessage()
+        {
+            WarningMessage("Please select a card.");
         }
     }
 }
