@@ -2,9 +2,9 @@
 
 namespace CAN.SMS.UI.Win.Forms.SchoolForms
 {
-    public partial class SchoolCard : BaseCardForm
+    public partial class SchoolEditForm : BaseEditForm
     {
-        public SchoolCard()
+        public SchoolEditForm()
         {
             InitializeComponent();
         }

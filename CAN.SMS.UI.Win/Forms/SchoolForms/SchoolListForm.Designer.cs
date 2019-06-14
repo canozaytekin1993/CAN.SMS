@@ -1,6 +1,6 @@
 ﻿namespace CAN.SMS.UI.Win.Forms.SchoolForms
 {
-    partial class SchoolCards
+    partial class SchoolListForm
     {
         /// <summary>
         /// Required designer variable.

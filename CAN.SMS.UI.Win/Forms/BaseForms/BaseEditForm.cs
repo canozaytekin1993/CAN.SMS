@@ -2,9 +2,9 @@
 
 namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
-    public partial class BaseCardForm : RibbonForm
+    public partial class BaseEditForm : RibbonForm
     {
-        public BaseCardForm()
+        public BaseEditForm()
         {
             InitializeComponent();
         }

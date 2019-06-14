@@ -66,29 +66,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\BaseForms\BaseCardForm.cs">
+    <Compile Include="Forms\BaseForms\BaseEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BaseForms\BaseCardForm.Designer.cs">
-      <DependentUpon>BaseCardForm.cs</DependentUpon>
+    <Compile Include="Forms\BaseForms\BaseEditForm.Designer.cs">
+      <DependentUpon>BaseEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BaseForms\BaseCardsForm.cs">
+    <Compile Include="Forms\BaseForms\BaseListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BaseForms\BaseCardsForm.Designer.cs">
-      <DependentUpon>BaseCardsForm.cs</DependentUpon>
+    <Compile Include="Forms\BaseForms\BaseListForm.Designer.cs">
+      <DependentUpon>BaseListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SchoolForms\SchoolCard.cs">
+    <Compile Include="Forms\SchoolForms\SchoolEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SchoolForms\SchoolCard.Designer.cs">
-      <DependentUpon>SchoolCard.cs</DependentUpon>
+    <Compile Include="Forms\SchoolForms\SchoolEditForm.Designer.cs">
+      <DependentUpon>SchoolEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SchoolForms\SchoolCards.cs">
+    <Compile Include="Forms\SchoolForms\SchoolListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SchoolForms\SchoolCards.Designer.cs">
-      <DependentUpon>SchoolCards.cs</DependentUpon>
+    <Compile Include="Forms\SchoolForms\SchoolListForm.Designer.cs">
+      <DependentUpon>SchoolListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GeneralForm\HomeForm.cs">
       <SubType>Form</SubType>
@@ -100,6 +100,8 @@
     <Compile Include="Interfaces\IStatusBarShortCut.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Show\ShowEditForms.cs" />
+    <Compile Include="Show\ShowListForms.cs" />
     <Compile Include="UserControls\Controls\Grid\MyBandedGridControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -184,17 +186,17 @@
     <Compile Include="UserControls\Controls\Navigators\SmallNavigator.Designer.cs">
       <DependentUpon>SmallNavigator.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\BaseForms\BaseCardForm.resx">
-      <DependentUpon>BaseCardForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\BaseForms\BaseEditForm.resx">
+      <DependentUpon>BaseEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BaseForms\BaseCardsForm.resx">
-      <DependentUpon>BaseCardsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\BaseForms\BaseListForm.resx">
+      <DependentUpon>BaseListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SchoolForms\SchoolCard.resx">
-      <DependentUpon>SchoolCard.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SchoolForms\SchoolEditForm.resx">
+      <DependentUpon>SchoolEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SchoolForms\SchoolCards.resx">
-      <DependentUpon>SchoolCards.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SchoolForms\SchoolListForm.resx">
+      <DependentUpon>SchoolListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralForm\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -369,6 +371,10 @@
     <ProjectReference Include="..\CAN.SMS.Bll\CAN.SMS.Bll.csproj">
       <Project>{2A7B2C98-B9AF-4380-A9C5-18FFA3423B8B}</Project>
       <Name>CAN.SMS.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CAN.SMS.Common\CAN.SMS.Common.csproj">
+      <Project>{05A35ECA-5254-425F-A5E3-B474487E97D3}</Project>
+      <Name>CAN.SMS.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\CAN.SMS.Model\CAN.SMS.Model.csproj">
       <Project>{53C25629-DC99-4D29-BEB9-53B4F4562130}</Project>

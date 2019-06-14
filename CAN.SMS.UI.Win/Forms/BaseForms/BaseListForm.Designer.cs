@@ -1,6 +1,6 @@
 ﻿namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
-    partial class BaseCardsForm
+    partial class BaseListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseCardsForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseListForm));
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
@@ -685,6 +685,7 @@
             this.btnExcelFileStandart.Caption = "Excel File ( Standart )";
             this.btnExcelFileStandart.Id = 35;
             this.btnExcelFileStandart.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttoxlsx_32x32;
+            this.btnExcelFileStandart.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S));
             this.btnExcelFileStandart.Name = "btnExcelFileStandart";
             // 
             // btnExcelFileFormat
@@ -692,6 +693,7 @@
             this.btnExcelFileFormat.Caption = "Excel File ( Format )";
             this.btnExcelFileFormat.Id = 36;
             this.btnExcelFileFormat.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttoxlsx_32x32;
+            this.btnExcelFileFormat.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F));
             this.btnExcelFileFormat.Name = "btnExcelFileFormat";
             // 
             // btnExcelFileUnformatted
@@ -699,6 +701,7 @@
             this.btnExcelFileUnformatted.Caption = "Excel File ( Unformatted )";
             this.btnExcelFileUnformatted.Id = 37;
             this.btnExcelFileUnformatted.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttoxlsx_32x32;
+            this.btnExcelFileUnformatted.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z));
             this.btnExcelFileUnformatted.Name = "btnExcelFileUnformatted";
             // 
             // btnWordFile
@@ -706,6 +709,7 @@
             this.btnWordFile.Caption = "Word File";
             this.btnWordFile.Id = 38;
             this.btnWordFile.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttodocx_32x32;
+            this.btnWordFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W));
             this.btnWordFile.Name = "btnWordFile";
             // 
             // btnPdfFile
@@ -713,6 +717,7 @@
             this.btnPdfFile.Caption = "Pdf File";
             this.btnPdfFile.Id = 39;
             this.btnPdfFile.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttopdf_32x32;
+            this.btnPdfFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P));
             this.btnPdfFile.Name = "btnPdfFile";
             // 
             // btnTextFile
@@ -720,6 +725,7 @@
             this.btnTextFile.Caption = "Text File";
             this.btnTextFile.Id = 40;
             this.btnTextFile.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttotxt_32x32;
+            this.btnTextFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T));
             this.btnTextFile.Name = "btnTextFile";
             // 
             // BaseCardsForm

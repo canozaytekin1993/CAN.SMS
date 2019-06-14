@@ -3,9 +3,9 @@ using CAN.SMS.UI.Win.Forms.BaseForms;
 
 namespace CAN.SMS.UI.Win.Forms.SchoolForms
 {
-    public partial class SchoolCards : BaseCardsForm
+    public partial class SchoolListForm : BaseListForm
     {
-        public SchoolCards()
+        public SchoolListForm()
         {
             InitializeComponent();
             SchoolBll bll = new SchoolBll();

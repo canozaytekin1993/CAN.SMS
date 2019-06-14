@@ -28,7 +28,7 @@ namespace CAN.SMS.UI.Win.GeneralForm
         {
             if (e.Item == btnSchoolCards)
             {
-                SchoolCards frm = new SchoolCards();
+                SchoolListForm frm = new SchoolListForm();
                 frm.MdiParent = ActiveForm;
                 frm.Show();
             }
