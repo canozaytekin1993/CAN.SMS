@@ -43,7 +43,9 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         {
             // Button Events
             foreach (BarItem button in ribbonControl.Items)
+            {
                 button.ItemClick += Button_ItemClick;
+            }
 
             // Table Events
             table.DoubleClick += Table_DoubleClick;

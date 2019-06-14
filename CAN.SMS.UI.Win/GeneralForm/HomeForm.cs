@@ -1,4 +1,6 @@
-﻿using CAN.SMS.UI.Win.Forms.SchoolForms;
+﻿using CAN.SMS.Common.Enums;
+using CAN.SMS.UI.Win.Forms.SchoolForms;
+using CAN.SMS.UI.Win.Show;
 using DevExpress.XtraBars;
 
 namespace CAN.SMS.UI.Win.GeneralForm
@@ -27,11 +29,7 @@ namespace CAN.SMS.UI.Win.GeneralForm
         private void buttons_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (e.Item == btnSchoolCards)
-            {
-                SchoolListForm frm = new SchoolListForm();
-                frm.MdiParent = ActiveForm;
-                frm.Show();
-            }
+                ShowListForms<SchoolListForm>.ShowListForm(CardType.School);
         }
     }
 }

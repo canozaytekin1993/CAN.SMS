@@ -15,7 +15,7 @@ namespace CAN.SMS.UI.Win.Show
             {
                 frm.processType = id > 0 ? ProcessType.EntityUpdate : ProcessType.EntityInsert;
                 frm.Id = id;
-                frm.Load();
+                frm.Loading();
                 frm.ShowDialog();
                 return frm.Refresh ? frm.Id : 0;
             }

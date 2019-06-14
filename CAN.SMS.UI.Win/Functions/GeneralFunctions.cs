@@ -1,5 +1,7 @@
-﻿using CAN.SMS.Common.Enums;
+﻿using System;
+using CAN.SMS.Common.Enums;
 using CAN.SMS.Common.Messages;
+using CAN.SMS.Model.Entities.Base;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 
@@ -53,7 +55,46 @@ namespace CAN.SMS.UI.Win.Functions
             btnBack.Enabled = buttonEnabledStatus;
             btnNew.Enabled = !buttonEnabledStatus;
             btnDelete.Enabled = !buttonEnabledStatus;
+        }
 
+        public static long CreateId(this ProcessType processType, BaseEntity selectedEntity)
+        {
+            // 2017 12 30 18 04 23 55 654
+
+            string ZeroAdd(string value)
+            {
+                if (value.Length == 1)
+                    return "0" + value;
+                return value;
+            }
+
+            string ThreeDigitCreate(string value)
+            {
+                switch (value.Length)
+                {
+                    case 1:
+                        return "00" + value;
+                    case 2:
+                        return "0" + value;
+                }
+
+                return value;
+            }
+
+            string Id()
+            {
+                var mounth = ZeroAdd(DateTime.Now.Month.ToString());
+                var day = ZeroAdd(DateTime.Now.Date.Day.ToString());
+                var hour = ZeroAdd(DateTime.Now.Hour.ToString());
+                var minute = ZeroAdd(DateTime.Now.Minute.ToString());
+                var second = ZeroAdd(DateTime.Now.Second.ToString());
+                var milisecond = ThreeDigitCreate(DateTime.Now.Millisecond.ToString());
+                var random = ZeroAdd(new Random().Next(0, 99).ToString());
+
+                return mounth + day + hour + minute + second + milisecond + random;
+            }
+
+            return (long)(processType == ProcessType.EntityUpdate ? selectedEntity.Id : long.Parse(Id()));
         }
     }
 }

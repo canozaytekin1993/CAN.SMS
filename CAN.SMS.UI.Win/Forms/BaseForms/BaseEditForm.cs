@@ -44,7 +44,9 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             CreateObject();
             //SchemeLoading();
             //ButtonHideOrShow();
-            Id = 
+            Id = processType.CreateId(oldEntity);
+            
+            // Update process.
         }
 
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
