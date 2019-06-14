@@ -375,5 +375,17 @@
       <Name>CAN.SMS.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\exporttodocx_16x16.png" />
+    <Content Include="Resources\exporttodocx_32x32.png" />
+    <Content Include="Resources\exporttopdf_16x16.png" />
+    <Content Include="Resources\exporttopdf_32x32.png" />
+    <Content Include="Resources\exporttotxt_16x16.png" />
+    <Content Include="Resources\exporttotxt_32x32.png" />
+    <Content Include="Resources\exporttoxlsx_16x16.png" />
+    <Content Include="Resources\exporttoxlsx_16x161.png" />
+    <Content Include="Resources\exporttoxlsx_32x32.png" />
+    <Content Include="Resources\exporttoxlsx_32x321.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

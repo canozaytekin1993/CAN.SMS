@@ -93,8 +93,8 @@
             this.btnFilter = new DevExpress.XtraBars.BarButtonItem();
             this.btnColumns = new DevExpress.XtraBars.BarButtonItem();
             this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSender = new DevExpress.XtraBars.BarButtonItem();
-            this.btnExit = new DevExpress.XtraBars.BarSubItem();
+            this.btnExit = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSender = new DevExpress.XtraBars.BarSubItem();
             this.barInsert = new DevExpress.XtraBars.BarStaticItem();
             this.barInsertDescription = new DevExpress.XtraBars.BarStaticItem();
             this.barDelete = new DevExpress.XtraBars.BarStaticItem();
@@ -121,6 +121,13 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.btnExcelFiles = new DevExpress.XtraBars.BarSubItem();
+            this.btnExcelFileStandart = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExcelFileFormat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExcelFileUnformatted = new DevExpress.XtraBars.BarButtonItem();
+            this.btnWordFile = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPdfFile = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTextFile = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,8 +147,8 @@
             this.btnFilter,
             this.btnColumns,
             this.btnPrint,
-            this.btnSender,
             this.btnExit,
+            this.btnSender,
             this.barInsert,
             this.barInsertDescription,
             this.barDelete,
@@ -163,9 +170,16 @@
             this.barStaticItem4,
             this.barExit,
             this.barExitDescription,
-            this.btnActivePasiveCards});
+            this.btnActivePasiveCards,
+            this.btnExcelFiles,
+            this.btnExcelFileStandart,
+            this.btnExcelFileFormat,
+            this.btnExcelFileUnformatted,
+            this.btnWordFile,
+            this.btnPdfFile,
+            this.btnTextFile});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 34;
+            this.ribbonControl.MaxItemId = 41;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -350,14 +364,14 @@
             superToolTip8.Items.Add(toolTipTitleItem16);
             this.btnPrint.SuperTip = superToolTip8;
             // 
-            // btnSender
+            // btnExit
             // 
-            this.btnSender.Caption = "Sender";
-            this.btnSender.Id = 10;
-            this.btnSender.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.export_16x16;
-            this.btnSender.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.export_32x32;
-            this.btnSender.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
-            this.btnSender.Name = "btnSender";
+            this.btnExit.Caption = "Exit";
+            this.btnExit.Id = 10;
+            this.btnExit.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.close_16x16;
+            this.btnExit.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.close_32x32;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.ShortcutKeyDisplayString = "Esc";
             toolTipTitleItem17.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
             toolTipTitleItem17.Text = "( F12 )";
             toolTipItem9.LeftIndent = 6;
@@ -370,28 +384,34 @@
             superToolTip9.Items.Add(toolTipItem9);
             superToolTip9.Items.Add(toolTipSeparatorItem9);
             superToolTip9.Items.Add(toolTipTitleItem18);
-            this.btnSender.SuperTip = superToolTip9;
+            this.btnExit.SuperTip = superToolTip9;
             // 
-            // btnExit
+            // btnSender
             // 
-            this.btnExit.Caption = "Exit";
-            this.btnExit.Id = 11;
-            this.btnExit.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.close_16x16;
-            this.btnExit.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.close_32x32;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.ShortcutKeyDisplayString = "Esc";
+            this.btnSender.Caption = "Sender";
+            this.btnSender.Id = 11;
+            this.btnSender.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.export_16x16;
+            this.btnSender.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.export_32x32;
+            this.btnSender.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
+            this.btnSender.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExcelFiles, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnWordFile),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnPdfFile),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnTextFile)});
+            this.btnSender.Name = "btnSender";
             toolTipTitleItem19.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
-            toolTipTitleItem19.Text = "( Esc )";
+            toolTipTitleItem19.Text = "( F12 )";
             toolTipItem10.LeftIndent = 6;
-            toolTipItem10.Text = "Exit";
+            toolTipItem10.Text = "Send to file";
             toolTipTitleItem20.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
             toolTipTitleItem20.LeftIndent = 6;
-            toolTipTitleItem20.Text = "Exit without closing the form";
+            toolTipTitleItem20.Text = "Exports the corresponding table to the file according to the file format you spec" +
+    "ify and opens the file";
             superToolTip10.Items.Add(toolTipTitleItem19);
             superToolTip10.Items.Add(toolTipItem10);
             superToolTip10.Items.Add(toolTipSeparatorItem10);
             superToolTip10.Items.Add(toolTipTitleItem20);
-            this.btnExit.SuperTip = superToolTip10;
+            this.btnSender.SuperTip = superToolTip10;
             // 
             // barInsert
             // 
@@ -649,6 +669,59 @@
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
+            // btnExcelFiles
+            // 
+            this.btnExcelFiles.Caption = "Excel Files";
+            this.btnExcelFiles.Id = 34;
+            this.btnExcelFiles.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttoxlsx_32x32;
+            this.btnExcelFiles.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExcelFileUnformatted),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExcelFileStandart),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExcelFileFormat)});
+            this.btnExcelFiles.Name = "btnExcelFiles";
+            // 
+            // btnExcelFileStandart
+            // 
+            this.btnExcelFileStandart.Caption = "Excel File ( Standart )";
+            this.btnExcelFileStandart.Id = 35;
+            this.btnExcelFileStandart.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttoxlsx_32x32;
+            this.btnExcelFileStandart.Name = "btnExcelFileStandart";
+            // 
+            // btnExcelFileFormat
+            // 
+            this.btnExcelFileFormat.Caption = "Excel File ( Format )";
+            this.btnExcelFileFormat.Id = 36;
+            this.btnExcelFileFormat.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttoxlsx_32x32;
+            this.btnExcelFileFormat.Name = "btnExcelFileFormat";
+            // 
+            // btnExcelFileUnformatted
+            // 
+            this.btnExcelFileUnformatted.Caption = "Excel File ( Unformatted )";
+            this.btnExcelFileUnformatted.Id = 37;
+            this.btnExcelFileUnformatted.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttoxlsx_32x32;
+            this.btnExcelFileUnformatted.Name = "btnExcelFileUnformatted";
+            // 
+            // btnWordFile
+            // 
+            this.btnWordFile.Caption = "Word File";
+            this.btnWordFile.Id = 38;
+            this.btnWordFile.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttodocx_32x32;
+            this.btnWordFile.Name = "btnWordFile";
+            // 
+            // btnPdfFile
+            // 
+            this.btnPdfFile.Caption = "Pdf File";
+            this.btnPdfFile.Id = 39;
+            this.btnPdfFile.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttopdf_32x32;
+            this.btnPdfFile.Name = "btnPdfFile";
+            // 
+            // btnTextFile
+            // 
+            this.btnTextFile.Caption = "Text File";
+            this.btnTextFile.Id = 40;
+            this.btnTextFile.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.exporttotxt_32x32;
+            this.btnTextFile.Name = "btnTextFile";
+            // 
             // BaseCardsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -682,8 +755,8 @@
         private DevExpress.XtraBars.BarButtonItem btnFilter;
         private DevExpress.XtraBars.BarButtonItem btnColumns;
         private DevExpress.XtraBars.BarButtonItem btnPrint;
-        private DevExpress.XtraBars.BarButtonItem btnSender;
-        private DevExpress.XtraBars.BarSubItem btnExit;
+        private DevExpress.XtraBars.BarButtonItem btnExit;
+        private DevExpress.XtraBars.BarSubItem btnSender;
         private DevExpress.XtraBars.BarStaticItem barInsert;
         private DevExpress.XtraBars.BarStaticItem barInsertDescription;
         private DevExpress.XtraBars.BarStaticItem barDelete;
@@ -706,5 +779,12 @@
         private DevExpress.XtraBars.BarStaticItem barExit;
         private DevExpress.XtraBars.BarStaticItem barExitDescription;
         private DevExpress.XtraBars.BarButtonItem btnActivePasiveCards;
+        private DevExpress.XtraBars.BarSubItem btnExcelFiles;
+        private DevExpress.XtraBars.BarButtonItem btnExcelFileUnformatted;
+        private DevExpress.XtraBars.BarButtonItem btnExcelFileStandart;
+        private DevExpress.XtraBars.BarButtonItem btnExcelFileFormat;
+        private DevExpress.XtraBars.BarButtonItem btnWordFile;
+        private DevExpress.XtraBars.BarButtonItem btnPdfFile;
+        private DevExpress.XtraBars.BarButtonItem btnTextFile;
     }
 }
