@@ -11,15 +11,15 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
     public partial class BaseEditForm : RibbonForm
     {
-        protected internal ProcessType processType;
-        protected internal long Id;
-        protected internal bool Refresh;
-        protected MyDataLayoutControl dataLayoutControl;
         protected IBaseBll bll;
         protected CardType cardType;
-        protected BaseEntity oldEntity;
         protected BaseEntity currentEntity;
+        protected MyDataLayoutControl dataLayoutControl;
+        protected internal long Id;
         protected bool IsLoaded;
+        protected BaseEntity oldEntity;
+        protected internal ProcessType processType;
+        protected internal bool Refresh;
 
         public BaseEditForm()
         {
@@ -45,7 +45,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             //SchemeLoading();
             //ButtonHideOrShow();
             Id = processType.CreateId(oldEntity);
-            
+
             // Update process.
         }
 
@@ -82,24 +82,30 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
         private void EntityDelete()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void Back()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void Save(bool b)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        protected internal virtual void Loading() { }
+        protected internal virtual void Loading()
+        {
+        }
 
-        protected virtual void ControlObjectConnection() { }
+        protected virtual void ControlObjectConnection()
+        {
+        }
 
-        protected virtual void CreateObject() { }
+        protected virtual void CreateObject()
+        {
+        }
 
         protected internal virtual void ButtonEnableStatus()
         {
@@ -110,8 +116,6 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         #endregion
 
         #region Events
-
-
 
         #endregion
     }

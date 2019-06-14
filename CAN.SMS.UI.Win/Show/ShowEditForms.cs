@@ -1,6 +1,6 @@
-﻿using CAN.SMS.Common.Enums;
+﻿using System;
+using CAN.SMS.Common.Enums;
 using CAN.SMS.UI.Win.Forms.BaseForms;
-using System;
 using CAN.SMS.UI.Win.Show.Interfaces;
 
 namespace CAN.SMS.UI.Win.Show
@@ -11,7 +11,7 @@ namespace CAN.SMS.UI.Win.Show
         {
             // Authorize Control
 
-            using (var frm = (TForm)Activator.CreateInstance(typeof(TForm)))
+            using (var frm = (TForm) Activator.CreateInstance(typeof(TForm)))
             {
                 frm.processType = id > 0 ? ProcessType.EntityUpdate : ProcessType.EntityInsert;
                 frm.Id = id;

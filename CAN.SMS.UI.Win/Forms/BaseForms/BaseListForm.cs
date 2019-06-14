@@ -1,4 +1,6 @@
-﻿using CAN.SMS.Bll.Interfaces;
+﻿using System;
+using System.Windows.Forms;
+using CAN.SMS.Bll.Interfaces;
 using CAN.SMS.Common.Enums;
 using CAN.SMS.Model.Entities.Base;
 using CAN.SMS.UI.Win.Functions;
@@ -7,26 +9,11 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using System;
-using System.Windows.Forms;
 
 namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
     public partial class BaseListForm : RibbonForm
     {
-        #region Protected
-
-        protected IBaseFormShow FormShow;
-        protected CardType cardType;
-        protected internal GridView Table;
-        protected bool activeCardShow;
-        protected internal bool multiSelect;
-        protected internal BaseEntity selectedEntity;
-        protected IBaseBll bll;
-        protected ControlNavigator navigator;
-
-        #endregion
-
         public BaseListForm()
         {
             InitializeComponent();
@@ -60,6 +47,19 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             // Updated
         }
 
+        #region Protected
+
+        protected IBaseFormShow FormShow;
+        protected CardType cardType;
+        protected internal GridView Table;
+        protected bool activeCardShow;
+        protected internal bool multiSelect;
+        protected internal BaseEntity selectedEntity;
+        protected IBaseBll bll;
+        protected ControlNavigator navigator;
+
+        #endregion
+
         #region Function
 
         private void ShowEditForm(long id)
@@ -67,7 +67,9 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             var result = FormShow.ShowDialogEditForm(cardType, id);
         }
 
-        private void EntityDelete() { }
+        private void EntityDelete()
+        {
+        }
 
         private void SelectEntity()
         {
@@ -84,13 +86,21 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             Close();
         }
 
-        private void RefreshEntity() { }
+        private void RefreshEntity()
+        {
+        }
 
-        private void FilterEntity() { }
+        private void FilterEntity()
+        {
+        }
 
-        private void Print() { }
+        private void Print()
+        {
+        }
 
-        private void FormCaptionSetting() { }
+        private void FormCaptionSetting()
+        {
+        }
 
         private void ProcessTypeChoose()
         {
@@ -101,9 +111,13 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                 btnEdit.PerformClick();
         }
 
-        protected virtual void VariableFill() { }
+        protected virtual void VariableFill()
+        {
+        }
 
-        protected virtual void Lists() { }
+        protected virtual void Lists()
+        {
+        }
 
         #endregion
 
@@ -115,7 +129,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
             if (e.Item == btnSender)
             {
-                var link = (BarSubItemLink)e.Item.Links[0];
+                var link = (BarSubItemLink) e.Item.Links[0];
                 link.Focus();
                 link.OpenMenu();
                 link.Item.ItemLinks[0].Focus();

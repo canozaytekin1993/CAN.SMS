@@ -1,6 +1,6 @@
-﻿using CAN.SMS.Model.Entities.Base;
-using System;
+﻿using System;
 using System.Linq.Expressions;
+using CAN.SMS.Model.Entities.Base;
 
 namespace CAN.SMS.UI.Win.Functions
 {

@@ -1,6 +1,6 @@
-﻿using CAN.SMS.UI.Win.GeneralForm;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using CAN.SMS.UI.Win.GeneralForm;
 
 namespace CAN.SMS.UI.Win
 {

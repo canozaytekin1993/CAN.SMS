@@ -25,7 +25,7 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
 
         protected override void Lists()
         {
-            table.GridControl.DataSource = ((SchoolBll)bll).List(FilterFunctions.Filter<School>(activeCardShow));
+            table.GridControl.DataSource = ((SchoolBll) bll).List(FilterFunctions.Filter<School>(activeCardShow));
         }
     }
 }

@@ -11,7 +11,7 @@ namespace CAN.SMS.UI.Win.Show
         {
             // Authorization Control
 
-            var frm = (TForm)Activator.CreateInstance(typeof(TForm));
+            var frm = (TForm) Activator.CreateInstance(typeof(TForm));
             frm.MdiParent = Form.ActiveForm;
 
             frm.Loading();

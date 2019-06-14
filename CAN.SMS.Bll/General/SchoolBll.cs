@@ -1,22 +1,26 @@
-﻿using CAN.SMS.Bll.Base;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Windows.Forms;
+using CAN.SMS.Bll.Base;
 using CAN.SMS.Common.Enums;
 using CAN.SMS.Data.Contexts;
 using CAN.SMS.Model.Dto;
 using CAN.SMS.Model.Entities;
 using CAN.SMS.Model.Entities.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Windows.Forms;
 
 namespace CAN.SMS.Bll.General
 {
     public class SchoolBll : BaseBll<School, StudentTrackingContext>
     {
-        public SchoolBll() { }
+        public SchoolBll()
+        {
+        }
 
-        public SchoolBll(Control ctrl) : base(ctrl) { }
+        public SchoolBll(Control ctrl) : base(ctrl)
+        {
+        }
 
         public BaseEntity Single(Expression<Func<School, bool>> filter)
         {
