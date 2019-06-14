@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ProcessType.cs" />
     <Compile Include="Enums\CardType.cs" />
     <Compile Include="Functions\EnumFunctions.cs" />
     <Compile Include="Messages\Messages.cs" />

@@ -1,11 +1,13 @@
-﻿using DevExpress.XtraBars;
+﻿using CAN.SMS.UI.Win.Show.Interfaces;
+using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
-using System;
 
 namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
     public partial class BaseListForm : RibbonForm
     {
+        protected IBaseFormShow FormShow;
+
         public BaseListForm()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         #region Function
         private void ShowEditForm(/*long id*/)
         {
-            //var result = 
+            var result = FormShow.
         }
         #endregion
 
@@ -58,7 +60,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                 // Authorization Control
                 ShowEditForm();
             }
-        } 
+        }
         #endregion
     }
 }
