@@ -68,7 +68,8 @@ namespace CAN.SMS.Dal.Base
             return filter == null ? _dbSet.Select(selector) : _dbSet.Where(filter).Select(selector);
         }
 
-        public string NewCodeGenerate(CardType cardType, Expression<Func<T, string>> filter, Expression<Func<T, bool>> @where = null)
+        public string NewCodeGenerate(CardType cardType, Expression<Func<T, string>> filter,
+            Expression<Func<T, bool>> @where = null)
         {
             string Code()
             {
@@ -78,8 +79,39 @@ namespace CAN.SMS.Dal.Base
                 for (int i = 0; i < codeArray.Length; i++)
                 {
                     code += codeArray[i];
+
+                    if (i + 3 < codeArray.Length - 1)
+                        code += " ";
                 }
+
+                return code += "-0001";
             }
+
+            string newCodeGenerateString(string code)
+            {
+                var numericalVariables = "";
+
+                foreach (var character in code)
+                {
+                    if (char.IsDigit(character))
+                        numericalVariables += character;
+                    else
+                        numericalVariables = "";
+                }
+
+                var increasedValue = (int.Parse(numericalVariables) + 1).ToString();
+                var difference = code.Length - increasedValue.Length;
+                if (difference < 0)
+                    difference = 0;
+
+                var newVariable = code.Substring(0, difference);
+                newVariable += increasedValue;
+
+                return newVariable;
+            }
+
+            var maxCode = where == null ? _dbSet.Max(filter) : _dbSet.Where(where).Max(filter);
+            return maxCode = where == null ? Code() : newCodeGenerateString(maxCode);
         }
 
         #region Variables

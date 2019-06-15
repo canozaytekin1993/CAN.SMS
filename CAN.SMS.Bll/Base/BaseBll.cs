@@ -84,8 +84,7 @@ namespace CAN.SMS.Bll.Base
             Expression<Func<T, bool>> where = null)
         {
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _ww);
-            _ww.Rep.NewCodeGenerate();
-
+            return _ww.Rep.NewCodeGenerate(cardType, filter, where);
         }
     }
 }

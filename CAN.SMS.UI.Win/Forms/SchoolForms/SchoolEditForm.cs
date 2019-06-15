@@ -35,14 +35,14 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
 
         protected override void ControlObjectConnection()
         {
-            var entity = (School) oldEntity;
+            var entity = (SchoolS) oldEntity;
 
             txtCode.Text = entity.Code;
             txtSchoolName.Text = entity.SchoolName;
             txtCountry.Id = entity.CountryId;
-            txtCountry.Text = entity.Country.CountryName;
+            txtCountry.Text = entity.CountryName;
             txtCounty.Id = entity.CountyId;
-            txtCounty.Text = entity.County.CountyName;
+            txtCounty.Text = entity.CountyName;
             txtDescription.Text = entity.Description;
             tglStatus.IsOn = entity.Statu;
         }

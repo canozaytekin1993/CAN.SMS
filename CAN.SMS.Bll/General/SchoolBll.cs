@@ -64,7 +64,7 @@ namespace CAN.SMS.Bll.General
 
         public string NewCodeCreate()
         {
-            throw new NotImplementedException();
+            return BaseNewCodeGenerate(CardType.School, x => x.Code);
         }
 
         public bool Delete(BaseEntity entity)

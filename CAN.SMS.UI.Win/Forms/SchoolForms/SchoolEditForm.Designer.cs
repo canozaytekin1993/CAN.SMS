@@ -95,7 +95,7 @@
             this.myDataLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.myDataLayoutControl.Root = this.Root;
             this.myDataLayoutControl.Size = new System.Drawing.Size(390, 166);
-            this.myDataLayoutControl.TabIndex = 2;
+            this.myDataLayoutControl.TabIndex = 0;
             this.myDataLayoutControl.Text = "myDataLayoutControl1";
             // 
             // txtDescription
@@ -110,7 +110,7 @@
             this.txtDescription.Size = new System.Drawing.Size(295, 46);
             this.txtDescription.statusBarDescription = "Enter Description";
             this.txtDescription.StyleController = this.myDataLayoutControl;
-            this.txtDescription.TabIndex = 9;
+            this.txtDescription.TabIndex = 3;
             // 
             // tglStatus
             // 
@@ -127,7 +127,7 @@
             this.tglStatus.Size = new System.Drawing.Size(106, 20);
             this.tglStatus.statusBarDescription = "Select the usage status of the card";
             this.tglStatus.StyleController = this.myDataLayoutControl;
-            this.tglStatus.TabIndex = 8;
+            this.tglStatus.TabIndex = 4;
             // 
             // txtCounty
             // 
@@ -146,7 +146,7 @@
             this.txtCounty.statusBarShortCut = "F4 :";
             this.txtCounty.statusBarShortCutDescription = null;
             this.txtCounty.StyleController = this.myDataLayoutControl;
-            this.txtCounty.TabIndex = 7;
+            this.txtCounty.TabIndex = 2;
             // 
             // txtCountry
             // 
@@ -165,7 +165,7 @@
             this.txtCountry.statusBarShortCut = "F4 :";
             this.txtCountry.statusBarShortCutDescription = null;
             this.txtCountry.StyleController = this.myDataLayoutControl;
-            this.txtCountry.TabIndex = 6;
+            this.txtCountry.TabIndex = 1;
             // 
             // txtSchoolName
             // 
@@ -179,7 +179,7 @@
             this.txtSchoolName.Size = new System.Drawing.Size(295, 20);
             this.txtSchoolName.statusBarDescription = null;
             this.txtSchoolName.StyleController = this.myDataLayoutControl;
-            this.txtSchoolName.TabIndex = 5;
+            this.txtSchoolName.TabIndex = 0;
             // 
             // txtCode
             // 
@@ -195,7 +195,7 @@
             this.txtCode.Size = new System.Drawing.Size(125, 20);
             this.txtCode.statusBarDescription = "Enter Code";
             this.txtCode.StyleController = this.myDataLayoutControl;
-            this.txtCode.TabIndex = 4;
+            this.txtCode.TabIndex = 5;
             // 
             // Root
             // 
@@ -324,14 +324,14 @@
             this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
             // 
-            // SchoolCard
+            // SchoolEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 299);
             this.Controls.Add(this.myDataLayoutControl);
             this.MinimumSize = new System.Drawing.Size(400, 300);
-            this.Name = "SchoolCard";
+            this.Name = "SchoolEditForm";
             this.Text = "SchoolCard";
             this.Controls.SetChildIndex(this.ribbonControl, 0);
             this.Controls.SetChildIndex(this.myDataLayoutControl, 0);
