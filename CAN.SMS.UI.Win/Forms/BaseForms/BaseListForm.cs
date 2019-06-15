@@ -62,7 +62,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
         #region Function
 
-        private void ShowEditForm(long id)
+        protected virtual void ShowEditForm(long id)
         {
             var result = FormShow.ShowDialogEditForm(cardType, id);
         }
@@ -129,7 +129,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
             if (e.Item == btnSender)
             {
-                var link = (BarSubItemLink) e.Item.Links[0];
+                var link = (BarSubItemLink)e.Item.Links[0];
                 link.Focus();
                 link.OpenMenu();
                 link.Item.ItemLinks[0].Focus();

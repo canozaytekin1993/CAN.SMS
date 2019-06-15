@@ -25,10 +25,8 @@ namespace CAN.SMS.UI.Win.Forms.CountryForms
             ControlObjectConnection();
 
             if (processType != ProcessType.EntityInsert) return;
-            {
-                txtCode.Text = ((CountryBll)bll).NewCodeCreate();
-                txtCountryName.Focus();
-            }
+            txtCode.Text = ((CountryBll)bll).NewCodeCreate();
+            txtCountryName.Focus();
         }
 
         protected override void ControlObjectConnection()
