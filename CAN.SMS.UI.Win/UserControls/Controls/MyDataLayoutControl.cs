@@ -46,7 +46,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls
             grp.OptionsTableLayoutGroup.ColumnDefinitions.Add(new ColumnDefinition
             {
                 SizeType = SizeType.Absolute,
-                Width = 99
+                Width = 110
             });
 
             grp.OptionsTableLayoutGroup.RowDefinitions.Clear();

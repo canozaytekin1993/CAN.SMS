@@ -144,7 +144,7 @@
             this.txtCounty.Size = new System.Drawing.Size(125, 20);
             this.txtCounty.statusBarDescription = null;
             this.txtCounty.statusBarShortCut = "F4 :";
-            this.txtCounty.statusBarShortCutDescription = null;
+            this.txtCounty.statusBarShortCutDescription = "Choose County";
             this.txtCounty.StyleController = this.myDataLayoutControl;
             this.txtCounty.TabIndex = 2;
             // 
@@ -163,7 +163,7 @@
             this.txtCountry.Size = new System.Drawing.Size(125, 20);
             this.txtCountry.statusBarDescription = null;
             this.txtCountry.statusBarShortCut = "F4 :";
-            this.txtCountry.statusBarShortCutDescription = null;
+            this.txtCountry.statusBarShortCutDescription = "Choose Country";
             this.txtCountry.StyleController = this.myDataLayoutControl;
             this.txtCountry.TabIndex = 1;
             // 
@@ -177,7 +177,7 @@
             this.txtSchoolName.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtSchoolName.Properties.MaxLength = 50;
             this.txtSchoolName.Size = new System.Drawing.Size(295, 20);
-            this.txtSchoolName.statusBarDescription = null;
+            this.txtSchoolName.statusBarDescription = "Enter School Name";
             this.txtSchoolName.StyleController = this.myDataLayoutControl;
             this.txtSchoolName.TabIndex = 0;
             // 

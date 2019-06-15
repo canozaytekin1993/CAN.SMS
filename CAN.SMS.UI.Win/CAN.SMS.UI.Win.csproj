@@ -78,6 +78,30 @@
     <Compile Include="Forms\BaseForms\BaseListForm.Designer.cs">
       <DependentUpon>BaseListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CountryForms\CountryEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CountryForms\CountryEditForm.Designer.cs">
+      <DependentUpon>CountryEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CountryForms\CountryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CountryForms\CountryListForm.Designer.cs">
+      <DependentUpon>CountryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CountyForms\CountyEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CountyForms\CountyEditForm.Designer.cs">
+      <DependentUpon>CountyEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CountyForms\CountyListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CountyForms\CountyListForm.Designer.cs">
+      <DependentUpon>CountyListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SchoolForms\SchoolEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +218,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaseForms\BaseListForm.resx">
       <DependentUpon>BaseListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CountryForms\CountryEditForm.resx">
+      <DependentUpon>CountryEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CountryForms\CountryListForm.resx">
+      <DependentUpon>CountryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CountyForms\CountyEditForm.resx">
+      <DependentUpon>CountyEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CountyForms\CountyListForm.resx">
+      <DependentUpon>CountyListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SchoolForms\SchoolEditForm.resx">
       <DependentUpon>SchoolEditForm.cs</DependentUpon>
@@ -396,5 +432,6 @@
     <Content Include="Resources\exporttoxlsx_32x32.png" />
     <Content Include="Resources\exporttoxlsx_32x321.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

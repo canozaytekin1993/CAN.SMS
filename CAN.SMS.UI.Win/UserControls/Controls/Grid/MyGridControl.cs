@@ -53,6 +53,7 @@ namespace CAN.SMS.UI.Win.UserControls.Controls.Grid
             idColumn.OptionsColumn.AllowEdit = false;
             idColumn.AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
             idColumn.AppearanceCell.Options.UseTextOptions = true;
+            idColumn.Visible = true;
             view.Columns.Add(codeColumn);
 
             return view;
