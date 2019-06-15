@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.longNavigator1 = new CAN.SMS.UI.Win.UserControls.Controls.Navigators.LongNavigator();
+            this.longNavigator = new CAN.SMS.UI.Win.UserControls.Controls.Navigators.LongNavigator();
             this.grid = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridControl();
             this.table = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridView();
             this.colId = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridColumn();
             this.colCode = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridColumn();
+            this.colCountryName = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridColumn();
+            this.colDescription = new CAN.SMS.UI.Win.UserControls.Controls.Grid.MyGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
@@ -49,13 +51,13 @@
             this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
-            // longNavigator1
+            // longNavigator
             // 
-            this.longNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.longNavigator1.Location = new System.Drawing.Point(0, 445);
-            this.longNavigator1.Name = "longNavigator1";
-            this.longNavigator1.Size = new System.Drawing.Size(1097, 24);
-            this.longNavigator1.TabIndex = 2;
+            this.longNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.longNavigator.Location = new System.Drawing.Point(0, 445);
+            this.longNavigator.Name = "longNavigator";
+            this.longNavigator.Size = new System.Drawing.Size(1097, 24);
+            this.longNavigator.TabIndex = 2;
             // 
             // grid
             // 
@@ -83,7 +85,9 @@
             this.table.Appearance.ViewCaption.Options.UseForeColor = true;
             this.table.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
-            this.colCode});
+            this.colCode,
+            this.colCountryName,
+            this.colDescription});
             this.table.GridControl = this.grid;
             this.table.Name = "table";
             this.table.OptionsMenu.EnableColumnMenu = false;
@@ -127,6 +131,33 @@
             this.colCode.statusBarShortCutDescription = null;
             this.colCode.Visible = true;
             this.colCode.VisibleIndex = 0;
+            this.colCode.Width = 150;
+            // 
+            // colCountryName
+            // 
+            this.colCountryName.Caption = "County Name";
+            this.colCountryName.FieldName = "CountyName";
+            this.colCountryName.Name = "colCountryName";
+            this.colCountryName.OptionsColumn.AllowEdit = false;
+            this.colCountryName.statusBarDescription = null;
+            this.colCountryName.statusBarShortCut = null;
+            this.colCountryName.statusBarShortCutDescription = null;
+            this.colCountryName.Visible = true;
+            this.colCountryName.VisibleIndex = 1;
+            this.colCountryName.Width = 250;
+            // 
+            // colDescription
+            // 
+            this.colDescription.Caption = "Description";
+            this.colDescription.FieldName = "Description";
+            this.colDescription.Name = "colDescription";
+            this.colDescription.OptionsColumn.AllowEdit = false;
+            this.colDescription.statusBarDescription = null;
+            this.colDescription.statusBarShortCut = null;
+            this.colDescription.statusBarShortCutDescription = null;
+            this.colDescription.Visible = true;
+            this.colDescription.VisibleIndex = 2;
+            this.colDescription.Width = 450;
             // 
             // CountryListForm
             // 
@@ -134,11 +165,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 500);
             this.Controls.Add(this.grid);
-            this.Controls.Add(this.longNavigator1);
+            this.Controls.Add(this.longNavigator);
             this.Name = "CountryListForm";
             this.Text = "Country Cards";
             this.Controls.SetChildIndex(this.ribbonControl, 0);
-            this.Controls.SetChildIndex(this.longNavigator1, 0);
+            this.Controls.SetChildIndex(this.longNavigator, 0);
             this.Controls.SetChildIndex(this.grid, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
@@ -150,10 +181,12 @@
 
         #endregion
 
-        private UserControls.Controls.Navigators.LongNavigator longNavigator1;
+        private UserControls.Controls.Navigators.LongNavigator longNavigator;
         private UserControls.Controls.Grid.MyGridControl grid;
         private UserControls.Controls.Grid.MyGridView table;
         private UserControls.Controls.Grid.MyGridColumn colId;
         private UserControls.Controls.Grid.MyGridColumn colCode;
+        private UserControls.Controls.Grid.MyGridColumn colCountryName;
+        private UserControls.Controls.Grid.MyGridColumn colDescription;
     }
 }
