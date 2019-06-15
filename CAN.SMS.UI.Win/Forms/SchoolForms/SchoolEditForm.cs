@@ -24,6 +24,13 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
             oldEntity = processType == ProcessType.EntityInsert
                 ? new SchoolS()
                 : ((SchoolBll) bll).Single(FilterFunctions.Filter<School>(Id));
+            ControlObjectConnection();
+
+            if (processType != ProcessType.EntityInsert) return;
+            {
+                txtCode.Text = ((SchoolBll) bll).NewCodeCreate();
+                txtSchoolName.Focus();
+            }
         }
 
         protected override void ControlObjectConnection()

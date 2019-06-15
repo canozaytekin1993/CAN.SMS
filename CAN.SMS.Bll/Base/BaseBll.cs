@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using CAN.SMS.Bll.Functions;
 using CAN.SMS.Bll.Interfaces;
@@ -77,6 +78,14 @@ namespace CAN.SMS.Bll.Base
                     return false;
             _ww.Rep.Delete(entity.EntityConvert<T>());
             return _ww.Save();
+        }
+
+        protected string BaseNewCodeGenerate(CardType cardType, Expression<Func<T, string>> filter,
+            Expression<Func<T, bool>> where = null)
+        {
+            GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _ww);
+            _ww.Rep.NewCodeGenerate();
+
         }
     }
 }

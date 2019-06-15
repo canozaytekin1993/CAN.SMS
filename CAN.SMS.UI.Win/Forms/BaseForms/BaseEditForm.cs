@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Windows.Forms;
 using CAN.SMS.Bll.Interfaces;
 using CAN.SMS.Common.Enums;
+using CAN.SMS.Common.Messages;
 using CAN.SMS.Model.Entities.Base;
 using CAN.SMS.UI.Win.Functions;
 using CAN.SMS.UI.Win.UserControls.Controls;
+using DevExpress.Utils.Internal.DTE;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 
@@ -20,6 +23,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         protected BaseEntity oldEntity;
         protected internal ProcessType processType;
         protected internal bool Refresh;
+        protected bool saveBeforeFormClose = true;
 
         public BaseEditForm()
         {
@@ -90,9 +94,68 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             throw new NotImplementedException();
         }
 
-        private void Save(bool b)
+        private bool Save(bool closing)
         {
-            throw new NotImplementedException();
+            bool SaveProcess()
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                switch (processType)
+                {
+                    case ProcessType.EntityInsert:
+                        if (EntityInsert())
+                            return SaveAfterProcess();
+                        break;
+                    case ProcessType.EntityUpdate:
+                        if (EntityUpdate())
+                            return SaveAfterProcess();
+                        break;
+                }
+
+                bool SaveAfterProcess()
+                {
+                    oldEntity = currentEntity;
+                    Refresh = true;
+                    ButtonEnableStatus();
+
+                    if (saveBeforeFormClose)
+                        Close();
+                    else
+                        processType = processType == ProcessType.EntityInsert ? ProcessType.EntityUpdate : processType;
+
+                    return true;
+                }
+
+                return false;
+            }
+
+            var result = closing ? Messages.ClosingMessage() : Messages.SaveResultMessage();
+
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    return SaveProcess();
+
+                case DialogResult.No:
+                    if (closing)
+                        btnSave.Enabled = false;
+                    return true;
+
+                case DialogResult.Cancel:
+                    return true;
+            }
+
+            return false;
+        }
+
+        protected virtual bool EntityInsert()
+        {
+            return ((IBaseGeneralBll)bll).Insert(currentEntity);
+        }
+
+        protected virtual bool EntityUpdate()
+        {
+            return ((IBaseGeneralBll)bll).Update(oldEntity, currentEntity);
         }
 
         protected internal virtual void Loading()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Forms;
 using CAN.SMS.Bll.Base;
+using CAN.SMS.Bll.Interfaces;
 using CAN.SMS.Common.Enums;
 using CAN.SMS.Data.Contexts;
 using CAN.SMS.Model.Dto;
@@ -12,7 +13,7 @@ using CAN.SMS.Model.Entities.Base;
 
 namespace CAN.SMS.Bll.General
 {
-    public class SchoolBll : BaseBll<School, StudentTrackingContext>
+    public class SchoolBll : BaseBll<School, StudentTrackingContext>, IBaseGeneralBll
     {
         public SchoolBll()
         {
@@ -59,6 +60,11 @@ namespace CAN.SMS.Bll.General
         public bool Update(BaseEntity oldEntity, BaseEntity currentEntity)
         {
             return BaseUpdate(oldEntity, currentEntity, x => x.Code == currentEntity.Code);
+        }
+
+        public string NewCodeCreate()
+        {
+            throw new NotImplementedException();
         }
 
         public bool Delete(BaseEntity entity)

@@ -15,7 +15,7 @@ namespace CAN.SMS.Common.Messages
             XtraMessageBox.Show(errorMessage, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public static DialogResult TrueSelectYesNo(string message, string title)
+        public static DialogResult YesSelectYesNo(string message, string title)
         {
             return XtraMessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button1);
@@ -27,9 +27,25 @@ namespace CAN.SMS.Common.Messages
                 MessageBoxDefaultButton.Button2);
         }
 
+        public static DialogResult YesSelectYesNoCancel(string message, string title)
+        {
+            return XtraMessageBox.Show(message, title, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+        }
+
         public static DialogResult DeleteMessage(string CardName)
         {
-            return NoSelectYesNo($"{CardName} deleted. Do you confirm ?", "Delete confirmation");
+            return NoSelectYesNo($"{CardName} deleted. Do you confirm ?", "Delete Confirmation");
+        }
+
+        public static DialogResult ClosingMessage()
+        {
+            return YesSelectYesNoCancel("Save changes?", "Close Confirmation");
+        }
+
+        public static DialogResult SaveResultMessage()
+        {
+            return YesSelectYesNo("Should I save it?", "Save Confirmation");
         }
 
         public static void CardNotChooseWarningMessage()

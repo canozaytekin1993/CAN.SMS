@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using CAN.SMS.Common.Enums;
+using CAN.SMS.Common.Functions;
 using CAN.SMS.Dal.Interfaces;
 
 namespace CAN.SMS.Dal.Base
@@ -64,6 +66,20 @@ namespace CAN.SMS.Dal.Base
             Expression<Func<T, TResult>> selector)
         {
             return filter == null ? _dbSet.Select(selector) : _dbSet.Where(filter).Select(selector);
+        }
+
+        public string NewCodeGenerate(CardType cardType, Expression<Func<T, string>> filter, Expression<Func<T, bool>> @where = null)
+        {
+            string Code()
+            {
+                string code = null;
+                var codeArray = cardType.ToName().Split(' ');
+
+                for (int i = 0; i < codeArray.Length; i++)
+                {
+                    code += codeArray[i];
+                }
+            }
         }
 
         #region Variables
