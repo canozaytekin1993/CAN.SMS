@@ -14,6 +14,20 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
     public partial class BaseListForm : RibbonForm
     {
+        #region Protected
+
+        protected IBaseFormShow FormShow;
+        protected CardType cardType;
+        protected internal GridView Table;
+        protected bool activeCardShow = true;
+        protected internal bool multiSelect;
+        protected internal BaseEntity selectedEntity;
+        protected IBaseBll bll;
+        protected ControlNavigator navigator;
+        protected internal long? selectedId;
+
+        #endregion
+
         public BaseListForm()
         {
             InitializeComponent();
@@ -46,19 +60,6 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
             // Updated
         }
-
-        #region Protected
-
-        protected IBaseFormShow FormShow;
-        protected CardType cardType;
-        protected internal GridView Table;
-        protected bool activeCardShow;
-        protected internal bool multiSelect;
-        protected internal BaseEntity selectedEntity;
-        protected IBaseBll bll;
-        protected ControlNavigator navigator;
-
-        #endregion
 
         #region Function
 

@@ -136,7 +136,7 @@
             // colCountryName
             // 
             this.colCountryName.Caption = "County Name";
-            this.colCountryName.FieldName = "CountyName";
+            this.colCountryName.FieldName = "CountryName";
             this.colCountryName.Name = "colCountryName";
             this.colCountryName.OptionsColumn.AllowEdit = false;
             this.colCountryName.statusBarDescription = null;

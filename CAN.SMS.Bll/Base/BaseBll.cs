@@ -53,10 +53,18 @@ namespace CAN.SMS.Bll.Base
 
         protected bool BaseInsert(BaseEntity entity, Expression<Func<T, bool>> filters)
         {
-            GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _ww);
-            // Validation
-            _ww.Rep.Insert(entity.EntityConvert<T>());
-            return _ww.Save();
+            try
+            {
+                GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _ww);
+                // Validation
+                _ww.Rep.Insert(entity.EntityConvert<T>());
+                return _ww.Save();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         protected bool BaseUpdate(BaseEntity oldEntity, BaseEntity currentEntity, Expression<Func<T, bool>> filter)

@@ -20,25 +20,12 @@ namespace CAN.SMS.Bll.General
 
         public BaseEntity Single(Expression<Func<Country, bool>> filter)
         {
-            return BaseSingle(filter, x => new Country
-            {
-                Id = x.Id,
-                Code = x.Code,
-                CountryName = x.CountryName,
-                Description = x.Description,
-                Statu = x.Statu
-            });
+            return BaseSingle(filter, x => x);
         }
 
         public IEnumerable<BaseEntity> List(Expression<Func<Country, bool>> filter)
         {
-            return BaseList(filter, x => new Country
-            {
-                Id = x.Id,
-                Code = x.Code,
-                CountryName = x.CountryName,
-                Description = x.Description
-            }).OrderBy(x => x.Code).ToList();
+            return BaseList(filter, x => x).OrderBy(x => x.Code).ToList();
         }
 
         public bool Insert(BaseEntity entity)

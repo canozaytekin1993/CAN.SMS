@@ -5,6 +5,7 @@ using CAN.SMS.Model.Dto;
 using CAN.SMS.Model.Entities;
 using CAN.SMS.UI.Win.Forms.BaseForms;
 using CAN.SMS.UI.Win.Functions;
+using DevExpress.XtraEditors;
 
 namespace CAN.SMS.UI.Win.Forms.SchoolForms
 {
@@ -59,6 +60,19 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
             };
 
             ButtonEnableStatus();
+        }
+
+        protected override void Choosing(object sender)
+        {
+            if (!(sender is ButtonEdit)) return;
+
+            using (var select = new SelectFunctions())
+            {
+                if (sender == txtCountry)
+                    select.Choose(txtCountry);
+                else if (sender == txtCounty)
+                    select.Choose(txtCounty);
+            }
         }
     }
 }

@@ -1,14 +1,15 @@
-﻿using System;
-using System.Windows.Forms;
-using CAN.SMS.Bll.Interfaces;
+﻿using CAN.SMS.Bll.Interfaces;
 using CAN.SMS.Common.Enums;
 using CAN.SMS.Common.Messages;
 using CAN.SMS.Model.Entities.Base;
 using CAN.SMS.UI.Win.Functions;
 using CAN.SMS.UI.Win.UserControls.Controls;
-using DevExpress.Utils.Internal.DTE;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors.Controls;
+using System;
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
@@ -18,6 +19,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         protected CardType cardType;
         protected BaseEntity currentEntity;
         protected MyDataLayoutControl dataLayoutControl;
+        protected MyDataLayoutControl[] dataLayoutControls;
         protected internal long Id;
         protected bool IsLoaded;
         protected BaseEntity oldEntity;
@@ -40,6 +42,79 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
             // Form Events
             Load += BaseEditForm_Load;
+
+            void ControlEvents(Control control)
+            {
+                control.KeyDown += Control_KeyDown;
+
+                switch (control)
+                {
+                    case MyButtonEdit edt:
+                        edt.IdChanged += Control_IdChanged;
+                        edt.ButtonClick += Control_ButtonClick;
+                        edt.DoubleClick += Control_DoubleClick;
+                        break;
+                    case BaseEdit edt:
+                        edt.EditValueChanged += Control_EditValueChanged;
+                        break;
+                }
+            }
+
+            if (dataLayoutControls == null)
+            {
+                if (dataLayoutControl == null) return;
+                foreach (Control ctrl in dataLayoutControl.Controls) ControlEvents(ctrl);
+            }
+            else
+            {
+                foreach (var layout in dataLayoutControls)
+                    foreach (Control ctrl in layout.Controls)
+                        ControlEvents(ctrl);
+            }
+        }
+
+        private void Control_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!IsLoaded) return;
+            CreateObject();
+        }
+
+        private void Control_DoubleClick(object sender, EventArgs e)
+        {
+            Choosing(sender);
+        }
+
+        private void Control_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            Choosing(sender);
+        }
+
+        private void Control_IdChanged(object sender, IdChangedEventArgs e)
+        {
+            if (IsLoaded) return;
+            CreateObject();
+        }
+
+        private void Control_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                Close();
+
+            if (sender is MyButtonEdit edt)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Delete when e.Control && e.Shift:
+                        edt.Id = null;
+                        edt.EditValue = null;
+                        break;
+
+                    case Keys.F4:
+                    case Keys.Down when e.Modifiers == Keys.Alt:
+                        Choosing(edt);
+                        break;
+                }
+            }
         }
 
         private void BaseEditForm_Load(object sender, EventArgs e)
@@ -55,7 +130,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (e.Item == btnNew)
+            if (e.Item == btnNew) 
             {
                 // Authorization Control
                 processType = ProcessType.EntityInsert;
@@ -82,6 +157,11 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             {
                 Close();
             }
+        }
+
+        protected virtual void Choosing(object sender)
+        {
+
         }
 
         private void EntityDelete()
