@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using CAN.SMS.Bll.Interfaces;
+﻿using CAN.SMS.Bll.Interfaces;
 using CAN.SMS.Common.Enums;
 using CAN.SMS.Model.Entities.Base;
 using CAN.SMS.UI.Win.Functions;
@@ -9,7 +7,10 @@ using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using System;
+using System.Windows.Forms;
 
 namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
@@ -17,6 +18,8 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
     {
         #region Protected
 
+        private bool _formViewSave;
+        private bool _tableViewSave;
         protected IBaseFormShow FormShow;
         protected CardType cardType;
         protected internal GridView Table;
@@ -47,9 +50,53 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             Table.DoubleClick += Table_DoubleClick;
             Table.KeyDown += Table_KeyDown;
             Table.MouseUp += Table_MouseUp;
+            Table.ColumnWidthChanged += Table_ColumnWidthChanged;
+            Table.ColumnPositionChanged += Table_ColumnPositionChanged;
+            Table.EndSorting += Table_EndSorting;
 
             // Form Events
             Shown += BaseListForm_Show;
+            Load += BaseListForm_Load;
+            FormClosing += BaseListForm_FormClosing;
+            LocationChanged += BaseListForm_LocationChanged;
+            SizeChanged += BaseListForm_SizeChanged;
+        }
+
+        private void BaseListForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (!IsMdiChild)
+                _formViewSave = true;
+        }
+
+        private void BaseListForm_LocationChanged(object sender, EventArgs e)
+        {
+            if (!IsMdiChild)
+                _formViewSave = true;
+        }
+
+        private void Table_EndSorting(object sender, EventArgs e)
+        {
+            _tableViewSave = true;
+        }
+
+        private void Table_ColumnPositionChanged(object sender, EventArgs e)
+        {
+            _tableViewSave = true;
+        }
+
+        private void Table_ColumnWidthChanged(object sender, ColumnEventArgs e)
+        {
+            _tableViewSave = true;
+        }
+
+        private void BaseListForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ViewSave();
+        }
+
+        private void BaseListForm_Load(object sender, EventArgs e)
+        {
+            ViewLoading();
         }
 
         private void Table_MouseUp(object sender, MouseEventArgs e)
@@ -109,6 +156,27 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             activeCardShow = true;
             FormCaptionSetting();
             Table.RowFocus("Id", id);
+        }
+
+        private void ViewSave()
+        {
+            if (_formViewSave)
+                Name.FormLocationSave(Left, Top, Width, Height, WindowState);
+
+            if (_tableViewSave)
+                Table.TableViewSave(IsMdiChild ? Name + " table" : Name + " TableMDI");
+        }
+
+        private void ViewLoading()
+        {
+            if (IsMdiChild)
+                Table.TableViewLoading(Name + " Table");
+
+            else
+            {
+                Name.FormViewLoading(this);
+                Table.TableViewLoading(Name + " TableMdi");
+            }
         }
 
         protected virtual void EntityDelete()
@@ -275,7 +343,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
         protected virtual void OpenRelatedCards()
         {
-            
+
         }
 
         private void Table_DoubleClick(object sender, EventArgs e)

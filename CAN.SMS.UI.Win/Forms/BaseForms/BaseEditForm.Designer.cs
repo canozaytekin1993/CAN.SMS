@@ -212,6 +212,8 @@
             this.statusBarInfo.Id = 6;
             this.statusBarInfo.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
             this.statusBarInfo.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_32x32;
+            this.statusBarInfo.ItemAppearance.Normal.ForeColor = System.Drawing.Color.DarkBlue;
+            this.statusBarInfo.ItemAppearance.Normal.Options.UseForeColor = true;
             this.statusBarInfo.Name = "statusBarInfo";
             this.statusBarInfo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
@@ -219,12 +221,18 @@
             // 
             this.statusShortCut.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.statusShortCut.Id = 7;
+            this.statusShortCut.ItemAppearance.Normal.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.statusShortCut.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+            this.statusShortCut.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusShortCut.ItemAppearance.Normal.Options.UseForeColor = true;
             this.statusShortCut.Name = "statusShortCut";
             // 
             // statusShortCutInfo
             // 
             this.statusShortCutInfo.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.statusShortCutInfo.Id = 8;
+            this.statusShortCutInfo.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+            this.statusShortCutInfo.ItemAppearance.Normal.Options.UseForeColor = true;
             this.statusShortCutInfo.Name = "statusShortCutInfo";
             // 
             // ribbonPage1
@@ -259,7 +267,7 @@
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
-            // BaseCardForm
+            // BaseEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -267,7 +275,7 @@
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl);
             this.MinimizeBox = false;
-            this.Name = "BaseCardForm";
+            this.Name = "BaseEditForm";
             this.Ribbon = this.ribbonControl;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

@@ -6,15 +6,19 @@ using CAN.SMS.UI.Win.Functions;
 using CAN.SMS.UI.Win.UserControls.Controls;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
+using CAN.SMS.UI.Win.Interfaces;
+using CAN.SMS.UI.Win.UserControls.Controls.Grid;
 
 namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
     public partial class BaseEditForm : RibbonForm
     {
+        private bool _formViewSave;
         protected IBaseBll bll;
         protected CardType cardType;
         protected BaseEntity currentEntity;
@@ -41,12 +45,16 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                 button.ItemClick += Button_ItemClick;
 
             // Form Events
+            LocationChanged += BaseEditForm_Changed;
+            SizeChanged += BaseEditForm_SizeChanged;
             Load += BaseEditForm_Load;
             FormClosing += BaseEditForm_FormClosing;
 
             void ControlEvents(Control control)
             {
                 control.KeyDown += Control_KeyDown;
+                control.GotFocus += Control_GotFocus;
+                control.Leave += Control_Leave;
 
                 switch (control)
                 {
@@ -75,12 +83,57 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
         }
 
+        private void Control_Leave(object sender, EventArgs e)
+        {
+            statusShortCut.Visibility = BarItemVisibility.Never;
+            statusShortCutInfo.Visibility = BarItemVisibility.Never;
+        }
+
+        private void Control_GotFocus(object sender, EventArgs e)
+        {
+            var type = sender.GetType();
+
+            if (type == typeof(MyButtonEdit) || type == typeof(MyGridView) || type == typeof(MyPictureEdit) ||
+                type == typeof(MyComboBoxEdit) || type == typeof(MyDateEdit))
+            {
+                statusShortCut.Visibility = BarItemVisibility.Always;
+                statusShortCut.Visibility = BarItemVisibility.Always;
+
+                statusBarInfo.Caption = ((IStatusBarDescription)sender).statusBarDescription;
+                statusShortCut.Caption = ((IStatusBarShortCut)sender).statusBarShortCut;
+                statusShortCutInfo.Caption = ((IStatusBarShortCut)sender).statusBarShortCutDescription;
+            }
+            else if (sender is IStatusBarDescription ctrl)
+                statusBarInfo.Caption = ctrl.statusBarDescription;
+        }
+
+        private void BaseEditForm_SizeChanged(object sender, EventArgs e)
+        {
+            _formViewSave = true;
+        }
+
+        private void BaseEditForm_Changed(object sender, EventArgs e)
+        {
+            _formViewSave = true;
+        }
+
         private void BaseEditForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // SchemeSave();
+            ViewSave();
 
             if (btnSave.Visibility == BarItemVisibility.Never || !btnSave.Enabled) return;
             if (!Save(true)) e.Cancel = true;
+        }
+
+        protected void ViewSave()
+        {
+            if (_formViewSave)
+                Name.FormLocationSave(Left, Top, Width, Height, WindowState);
+        }
+
+        private void ViewLoading()
+        {
+            Name.FormViewLoading(this);
         }
 
         protected virtual void Control_EnableChange(object sender, EventArgs e) { }
@@ -133,7 +186,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         {
             IsLoaded = true;
             CreateObject();
-            //SchemeLoading();
+            ViewLoading();
             //ButtonHideOrShow();
             Id = processType.CreateId(oldEntity);
 

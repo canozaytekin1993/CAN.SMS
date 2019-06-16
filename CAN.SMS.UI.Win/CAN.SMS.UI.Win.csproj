@@ -114,6 +114,7 @@
     <Compile Include="Forms\SchoolForms\SchoolListForm.Designer.cs">
       <DependentUpon>SchoolListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions\FileFunctions.cs" />
     <Compile Include="Functions\FilterFunctions.cs" />
     <Compile Include="Functions\GeneralFunctions.cs" />
     <Compile Include="Functions\SelectFunctions.cs" />
