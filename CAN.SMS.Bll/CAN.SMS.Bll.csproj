@@ -57,6 +57,7 @@
     <Compile Include="General\CountyBll.cs" />
     <Compile Include="General\SchoolBll.cs" />
     <Compile Include="Interfaces\IBaseBll.cs" />
+    <Compile Include="Interfaces\IBaseCommonBll.cs" />
     <Compile Include="Interfaces\IBaseGeneralBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

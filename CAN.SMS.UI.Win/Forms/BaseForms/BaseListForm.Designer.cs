@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseListForm));
@@ -84,6 +85,11 @@
             DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem11 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem12 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -124,11 +130,14 @@
             this.barExit = new DevExpress.XtraBars.BarStaticItem();
             this.barExitDescription = new DevExpress.XtraBars.BarStaticItem();
             this.btnActivePasiveCards = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRelatedCards = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rightClickMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightClickMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -177,9 +186,10 @@
             this.btnExcelFileUnformatted,
             this.btnWordFile,
             this.btnPdfFile,
-            this.btnTextFile});
+            this.btnTextFile,
+            this.btnRelatedCards});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 41;
+            this.ribbonControl.MaxItemId = 42;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -672,6 +682,28 @@
             superToolTip11.Items.Add(toolTipTitleItem22);
             this.btnActivePasiveCards.SuperTip = superToolTip11;
             // 
+            // btnRelatedCards
+            // 
+            this.btnRelatedCards.Caption = "Related Cards";
+            this.btnRelatedCards.Id = 41;
+            this.btnRelatedCards.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.documentmap_16x16;
+            this.btnRelatedCards.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.documentmap_32x32;
+            this.btnRelatedCards.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B));
+            this.btnRelatedCards.Name = "btnRelatedCards";
+            toolTipTitleItem23.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.comment_32x32;
+            toolTipTitleItem23.Text = "( Ctrl+B )";
+            toolTipItem12.LeftIndent = 6;
+            toolTipItem12.Text = "Related Cards";
+            toolTipTitleItem24.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.suggestion_16x16;
+            toolTipTitleItem24.LeftIndent = 6;
+            toolTipTitleItem24.Text = "Delivered subcards that are bound.";
+            superToolTip12.Items.Add(toolTipTitleItem23);
+            superToolTip12.Items.Add(toolTipItem12);
+            superToolTip12.Items.Add(toolTipSeparatorItem12);
+            superToolTip12.Items.Add(toolTipTitleItem24);
+            this.btnRelatedCards.SuperTip = superToolTip12;
+            this.btnRelatedCards.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -688,6 +720,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnRefresh);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnFilter);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnColumns);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnRelatedCards);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnPrint);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSender);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnExit);
@@ -727,6 +760,16 @@
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
+            // rightClickMenu
+            // 
+            this.rightClickMenu.ItemLinks.Add(this.btnNew);
+            this.rightClickMenu.ItemLinks.Add(this.btnDelete);
+            this.rightClickMenu.ItemLinks.Add(this.btnSelect);
+            this.rightClickMenu.ItemLinks.Add(this.btnEdit);
+            this.rightClickMenu.ItemLinks.Add(this.btnRefresh);
+            this.rightClickMenu.Name = "rightClickMenu";
+            this.rightClickMenu.Ribbon = this.ribbonControl;
+            // 
             // BaseListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -740,6 +783,7 @@
             this.ShowIcon = false;
             this.StatusBar = this.ribbonStatusBar1;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightClickMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -791,5 +835,7 @@
         private DevExpress.XtraBars.BarButtonItem btnWordFile;
         private DevExpress.XtraBars.BarButtonItem btnPdfFile;
         private DevExpress.XtraBars.BarButtonItem btnTextFile;
+        private DevExpress.XtraBars.PopupMenu rightClickMenu;
+        protected DevExpress.XtraBars.BarButtonItem btnRelatedCards;
     }
 }

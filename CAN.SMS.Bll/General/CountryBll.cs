@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CAN.SMS.Bll.General
 {
-    public class CountryBll : BaseBll<Country, StudentTrackingContext>, IBaseGeneralBll
+    public class CountryBll : BaseBll<Country, StudentTrackingContext>, IBaseGeneralBll, IBaseCommonBll
     {
         public CountryBll() { }
 

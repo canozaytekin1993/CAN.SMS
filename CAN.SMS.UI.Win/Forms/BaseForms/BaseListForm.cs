@@ -5,6 +5,7 @@ using CAN.SMS.Common.Enums;
 using CAN.SMS.Model.Entities.Base;
 using CAN.SMS.UI.Win.Functions;
 using CAN.SMS.UI.Win.Show.Interfaces;
+using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
@@ -20,11 +21,14 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         protected CardType cardType;
         protected internal GridView Table;
         protected bool activeCardShow = true;
+        protected internal bool activePasiveButtonShow = false;
         protected internal bool multiSelect;
         protected internal BaseEntity selectedEntity;
         protected IBaseBll bll;
         protected ControlNavigator navigator;
         protected internal long? selectedId;
+        protected BarItem[] ShowItems;
+        protected BarItem[] HideItems;
 
         #endregion
 
@@ -42,8 +46,38 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             // Table Events
             Table.DoubleClick += Table_DoubleClick;
             Table.KeyDown += Table_KeyDown;
+            Table.MouseUp += Table_MouseUp;
 
             // Form Events
+            Shown += BaseListForm_Show;
+        }
+
+        private void Table_MouseUp(object sender, MouseEventArgs e)
+        {
+            e.RightClickShow(rightClickMenu);
+        }
+
+        private void BaseListForm_Show(object sender, EventArgs e)
+        {
+            Table.Focus();
+            ButtonHideOrShow();
+            //ColoumnHideOrShow();
+
+            if (IsMdiChild || !selectedId.HasValue) return; // selectedId == null ) return;
+            Table.RowFocus("Id", selectedId);
+        }
+
+        private void ButtonHideOrShow()
+        {
+            btnSelect.Visibility = activePasiveButtonShow ? BarItemVisibility.Never :
+                IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
+            barEnter.Visibility = IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
+            barEnterDescription.Visibility = IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
+            btnActivePasiveCards.Visibility = activeCardShow ? BarItemVisibility.Always :
+                IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
+
+            ShowItems?.ForEach(x => x.Visibility = BarItemVisibility.Always);
+            HideItems?.ForEach(x => x.Visibility = BarItemVisibility.Never);
         }
 
         protected internal void Loading()
@@ -66,10 +100,25 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         protected virtual void ShowEditForm(long id)
         {
             var result = FormShow.ShowDialogEditForm(cardType, id);
+            ShowEditFormDefault(result);
         }
 
-        private void EntityDelete()
+        protected void ShowEditFormDefault(long id)
         {
+            if (id <= 0) return;
+            activeCardShow = true;
+            FormCaptionSetting();
+            Table.RowFocus("Id", id);
+        }
+
+        protected virtual void EntityDelete()
+        {
+            var entity = Table.GetRow<BaseEntity>();
+            if (entity == null) return;
+            if (!((IBaseCommonBll)bll).Delete(entity)) return;
+
+            Table.DeleteSelectedRows();
+            Table.RowFocus(Table.FocusedRowHandle);
         }
 
         private void SelectEntity()
@@ -87,7 +136,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             Close();
         }
 
-        private void RefreshEntity()
+        protected virtual void RefreshEntity()
         {
         }
 
@@ -101,6 +150,24 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
         private void FormCaptionSetting()
         {
+            if (btnActivePasiveCards == null)
+            {
+                Lists();
+                return;
+            }
+
+            if (activeCardShow)
+            {
+                btnActivePasiveCards.Caption = "Pasive Cards";
+                Table.ViewCaption = Text;
+            }
+            else
+            {
+                btnActivePasiveCards.Caption = "Active Cards";
+                Table.ViewCaption = Text + " - Pasive Cards";
+            }
+
+            Lists();
         }
 
         private void ProcessTypeChoose()
@@ -172,7 +239,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
             else if (e.Item == btnRefresh)
             {
-                RefreshEntity();
+                Lists();
             }
             else if (e.Item == btnFilter)
             {
@@ -184,6 +251,10 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                     Table.ShowCustomization();
                 else
                     Table.HideCustomization();
+            }
+            else if (e.Item == btnRelatedCards)
+            {
+                OpenRelatedCards();
             }
             else if (e.Item == btnPrint)
             {
@@ -200,6 +271,11 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
 
             Cursor.Current = DefaultCursor;
+        }
+
+        protected virtual void OpenRelatedCards()
+        {
+            
         }
 
         private void Table_DoubleClick(object sender, EventArgs e)

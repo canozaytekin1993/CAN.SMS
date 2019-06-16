@@ -69,7 +69,7 @@ namespace CAN.SMS.Dal.Base
         }
 
         public string NewCodeGenerate(CardType cardType, Expression<Func<T, string>> filter,
-            Expression<Func<T, bool>> @where = null)
+            Expression<Func<T, bool>> where = null)
         {
             string Code()
             {
@@ -80,7 +80,7 @@ namespace CAN.SMS.Dal.Base
                 {
                     code += codeArray[i];
 
-                    if (i + 3 < codeArray.Length - 1)
+                    if (i + 1 < codeArray.Length - 1)
                         code += " ";
                 }
 
@@ -111,7 +111,7 @@ namespace CAN.SMS.Dal.Base
             }
 
             var maxCode = where == null ? _dbSet.Max(filter) : _dbSet.Where(where).Max(filter);
-            return maxCode = where == null ? Code() : newCodeGenerateString(maxCode);
+            return maxCode == null ? Code() : newCodeGenerateString(maxCode);
         }
 
         #region Variables

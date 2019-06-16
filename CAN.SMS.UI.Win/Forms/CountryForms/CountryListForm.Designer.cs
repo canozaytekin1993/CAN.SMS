@@ -43,6 +43,7 @@
             // ribbonControl
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
+            this.ribbonControl.MaxItemId = 42;
             // 
             // 
             // 

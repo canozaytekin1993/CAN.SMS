@@ -71,8 +71,14 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
                 if (sender == txtCountry)
                     select.Choose(txtCountry);
                 else if (sender == txtCounty)
-                    select.Choose(txtCounty);
+                    select.Choose(txtCounty, txtCountry);
             }
+        }
+
+        protected override void Control_EnableChange(object sender, EventArgs e)
+        {
+            if (sender != txtCountry) return;
+            txtCountry.ControlEnabledChange(txtCounty);
         }
     }
 }

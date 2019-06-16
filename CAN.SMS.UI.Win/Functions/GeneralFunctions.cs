@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Windows.Forms;
 using CAN.SMS.Common.Enums;
 using CAN.SMS.Common.Messages;
 using CAN.SMS.Model.Entities.Base;
+using CAN.SMS.UI.Win.UserControls.Controls;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 
@@ -11,14 +13,14 @@ namespace CAN.SMS.UI.Win.Functions
     {
         public static long GetRowId(this GridView table)
         {
-            if (table.FocusedRowHandle > -1) return (long) table.GetFocusedRowCellValue("Id");
+            if (table.FocusedRowHandle > -1) return (long)table.GetFocusedRowCellValue("Id");
             Messages.CardNotChooseWarningMessage();
             return -1;
         }
 
         public static T GetRow<T>(this GridView table, bool Ismessage = true)
         {
-            if (table.FocusedRowHandle > -1) return (T) table.GetRow(table.FocusedRowHandle);
+            if (table.FocusedRowHandle > -1) return (T)table.GetRow(table.FocusedRowHandle);
 
             if (Ismessage) Messages.CardNotChooseWarningMessage();
 
@@ -35,9 +37,9 @@ namespace CAN.SMS.UI.Win.Functions
 
                 if (prop.PropertyType == typeof(byte[]))
                 {
-                    if (string.IsNullOrEmpty(oldValue.ToString())) oldValue = new byte[] {0};
-                    if (string.IsNullOrEmpty(currentEntity.ToString())) currentValue = new byte[] {0};
-                    if (((byte[]) oldValue).Length != ((byte[]) currentValue).Length) return DataChangeLocation.Column;
+                    if (string.IsNullOrEmpty(oldValue.ToString())) oldValue = new byte[] { 0 };
+                    if (string.IsNullOrEmpty(currentEntity.ToString())) currentValue = new byte[] { 0 };
+                    if (((byte[])oldValue).Length != ((byte[])currentValue).Length) return DataChangeLocation.Column;
                 }
                 else if (!currentValue.Equals(oldValue))
                 {
@@ -96,7 +98,48 @@ namespace CAN.SMS.UI.Win.Functions
                 return year + month + day + hour + minute + second + millisecond + random;
             }
 
-            return (long) (processType == ProcessType.EntityUpdate ? selectedEntity.Id : long.Parse(Id()));
+            return (long)(processType == ProcessType.EntityUpdate ? selectedEntity.Id : long.Parse(Id()));
+        }
+
+        public static void ControlEnabledChange(this MyButtonEdit baseEdit, Control prmEdit)
+        {
+            switch (prmEdit)
+            {
+                case MyButtonEdit edt:
+                    edt.Enabled = baseEdit.Id.HasValue && baseEdit.Id > 0;
+                    edt.Id = null;
+                    edt.EditValue = null;
+                    break;
+            }
+        }
+
+        public static void RowFocus(this GridView table, string searchColoumn, object searchValue)
+        {
+            var rowHandle = 0;
+
+            for (int i = 0; i < table.RowCount; i++)
+            {
+                var resultValue = table.GetRowCellValue(i, searchColoumn);
+                if (searchValue.Equals(resultValue)) rowHandle = 1;
+            }
+
+            table.FocusedRowHandle = rowHandle;
+        }
+
+        public static void RowFocus(this GridView table, int rowhandle)
+        {
+            if (rowhandle <= 0) return;
+
+            if (rowhandle == table.RowCount - 1)
+                table.FocusedRowHandle = rowhandle;
+            else
+                table.FocusedRowHandle = rowhandle - 1;
+        }
+
+        public static void RightClickShow(this MouseEventArgs e, PopupMenu rightMenu)
+        {
+            if (e.Button != MouseButtons.Right) return;
+            rightMenu.ShowPopup(Control.MousePosition);
         }
     }
 }

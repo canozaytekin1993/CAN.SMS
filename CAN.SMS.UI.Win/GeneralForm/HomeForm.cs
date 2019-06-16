@@ -1,4 +1,5 @@
 ﻿using CAN.SMS.Common.Enums;
+using CAN.SMS.UI.Win.Forms.CountryForms;
 using CAN.SMS.UI.Win.Forms.SchoolForms;
 using CAN.SMS.UI.Win.Show;
 using DevExpress.XtraBars;
@@ -29,6 +30,8 @@ namespace CAN.SMS.UI.Win.GeneralForm
         {
             if (e.Item == btnSchoolCards)
                 ShowListForms<SchoolListForm>.ShowListForm(CardType.School);
+            if (e.Item == btnCountryCards)
+                ShowListForms<CountryListForm>.ShowListForm(CardType.Country);
         }
     }
 }

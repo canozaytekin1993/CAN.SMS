@@ -8,10 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Forms;
+using CAN.SMS.Bll.Interfaces;
 
 namespace CAN.SMS.Bll.General
 {
-    public class CountyBll : BaseBll<County, StudentTrackingContext>
+    public class CountyBll : BaseBll<County, StudentTrackingContext>, IBaseCommonBll
     {
         public CountyBll() { }
 

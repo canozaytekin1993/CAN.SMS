@@ -28,6 +28,7 @@ namespace CAN.SMS.UI.Win.Forms.CountyForms
             Table = table;
             cardType = CardType.County;
             navigator = longNavigator.Navigator;
+            Text = Text + $" - ({_countryName})";
         }
 
         protected override void Lists()
@@ -39,7 +40,7 @@ namespace CAN.SMS.UI.Win.Forms.CountyForms
         protected override void ShowEditForm(long id)
         {
             var result = new ShowEditForms<CountyEditForm>().ShowDialogEditForm(CardType.County, id, _countryId, _countryName);
-            // process
+            ShowEditFormDefault(result);
         }
     }
 }

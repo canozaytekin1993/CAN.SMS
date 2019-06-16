@@ -42,6 +42,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
             // Form Events
             Load += BaseEditForm_Load;
+            FormClosing += BaseEditForm_FormClosing;
 
             void ControlEvents(Control control)
             {
@@ -51,6 +52,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                 {
                     case MyButtonEdit edt:
                         edt.IdChanged += Control_IdChanged;
+                        edt.EnabledChange += Control_EnableChange;
                         edt.ButtonClick += Control_ButtonClick;
                         edt.DoubleClick += Control_DoubleClick;
                         break;
@@ -72,6 +74,16 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                         ControlEvents(ctrl);
             }
         }
+
+        private void BaseEditForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // SchemeSave();
+
+            if (btnSave.Visibility == BarItemVisibility.Never || !btnSave.Enabled) return;
+            if (!Save(true)) e.Cancel = true;
+        }
+
+        protected virtual void Control_EnableChange(object sender, EventArgs e) { }
 
         private void Control_EditValueChanged(object sender, EventArgs e)
         {
@@ -130,7 +142,8 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (e.Item == btnNew) 
+            Cursor.Current = Cursors.WaitCursor;
+            if (e.Item == btnNew)
             {
                 // Authorization Control
                 processType = ProcessType.EntityInsert;
@@ -157,6 +170,8 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             {
                 Close();
             }
+
+            Cursor.Current = DefaultCursor;
         }
 
         protected virtual void Choosing(object sender)
@@ -166,12 +181,20 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
         private void EntityDelete()
         {
-            throw new NotImplementedException();
+            if (!((IBaseCommonBll)bll).Delete(oldEntity)) return;
+            Refresh = true;
+            Close();
         }
 
         private void Back()
         {
-            throw new NotImplementedException();
+            if (Messages.NoSelectYesNo("Changes will be undone. Do you confirm?", "Confirmation") !=
+                DialogResult.Yes) return;
+
+            if (processType == ProcessType.EntityUpdate)
+                Loading();
+            else
+                Close();
         }
 
         private bool Save(bool closing)
@@ -222,7 +245,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                     return true;
 
                 case DialogResult.Cancel:
-                    return true;
+                    return false;
             }
 
             return false;

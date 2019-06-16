@@ -13,7 +13,7 @@ using CAN.SMS.Model.Entities.Base;
 
 namespace CAN.SMS.Bll.General
 {
-    public class SchoolBll : BaseBll<School, StudentTrackingContext>, IBaseGeneralBll
+    public class SchoolBll : BaseBll<School, StudentTrackingContext>, IBaseGeneralBll, IBaseCommonBll
     {
         public SchoolBll()
         {

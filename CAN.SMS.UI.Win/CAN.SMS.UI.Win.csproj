@@ -422,6 +422,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\documentmap_16x16.png" />
+    <None Include="Resources\documentmap_32x32.png" />
     <Content Include="Resources\exporttodocx_16x16.png" />
     <Content Include="Resources\exporttodocx_32x32.png" />
     <Content Include="Resources\exporttopdf_16x16.png" />

@@ -19,6 +19,17 @@ namespace CAN.SMS.UI.Win.Show
             frm.Show();
         }
 
+        public static void ShowListForm(CardType cardType, params object[] prm)
+        {
+            // Authorization Control
+
+            var frm = (TForm)Activator.CreateInstance(typeof(TForm), prm);
+            frm.MdiParent = Form.ActiveForm;
+
+            frm.Loading();
+            frm.Show();
+        }
+
         public static BaseEntity ShowDialogListForm(CardType cardType, long? selectedId, params object[] prm)
         {
             // Authorization Control
