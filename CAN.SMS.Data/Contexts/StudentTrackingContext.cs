@@ -29,6 +29,7 @@ namespace CAN.SMS.Data.Contexts
         public DbSet<School> School { get; set; }
         public DbSet<Country> Country { get; set; }
         public DbSet<County> County { get; set; }
+        public DbSet<Filter> Filter { get; set; }
 
         #endregion
     }

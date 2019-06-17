@@ -37,19 +37,27 @@ namespace CAN.SMS.UI.Win.Forms.FilterForms
         {
             txtFilterText.SourceControl = _filterGrid;
 
-            if (processType == ProcessType.EntityInsert)
+            while (true)
             {
-                oldEntity = new Filter();
-                Id = processType.CreateId(oldEntity);
-                txtCode.Text = ((FilterBll)bll).NewCodeCreate(x => x.CardType == _filterCardType);
-            }
-            else
-            {
-                oldEntity = ((FilterBll)bll).Single(FilterFunctions.Filter<Filter>(Id));
-                if (oldEntity == null)
-                    processType = ProcessType.EntityInsert;
+                if (processType == ProcessType.EntityInsert)
+                {
+                    oldEntity = new Filter();
+                    Id = processType.CreateId(oldEntity);
+                    txtCode.Text = ((FilterBll)bll).NewCodeCreate(x => x.CardType == _filterCardType);
+                }
+                else
+                {
+                    oldEntity = ((FilterBll)bll).Single(FilterFunctions.Filter<Filter>(Id));
+                    if (oldEntity == null)
+                    {
+                        processType = ProcessType.EntityInsert;
+                        continue;
+                    }
 
-                ControlObjectConnection();
+                    ControlObjectConnection();
+                }
+
+                break;
             }
         }
 
@@ -58,8 +66,8 @@ namespace CAN.SMS.UI.Win.Forms.FilterForms
             var entity = (Filter)oldEntity;
 
             txtCode.Text = entity.Code;
-            txtFilterName.Text = entity.FilterText;
-            txtFilterText.Text = entity.FilterText;
+            txtFilterName.Text = entity.FilterName;
+            txtFilterText.FilterString = entity.FilterText;
         }
 
         protected override void CreateObject()

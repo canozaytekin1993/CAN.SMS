@@ -41,7 +41,7 @@ namespace CAN.SMS.UI.Win.Forms.FilterForms
 
         protected override void ShowEditForm(long id)
         {
-            var result = new ShowEditForms<FilterEditForm>().ShowDialogEditForm(CardType.Filter, id, _filterCardType, _filterGrid);
+            var result = ShowEditForms<FilterEditForm>.ShowDialogEditForm(CardType.Filter, id, _filterCardType, _filterGrid);
             ShowEditFormDefault(result);
         }
     }

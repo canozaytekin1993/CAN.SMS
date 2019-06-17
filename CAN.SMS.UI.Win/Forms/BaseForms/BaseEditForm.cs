@@ -60,6 +60,9 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
 
                 switch (control)
                 {
+                    case FilterControl edt:
+                        edt.FilterChanged += Control_EditValueChanged;
+                        break;
                     case MyButtonEdit edt:
                         edt.IdChanged += Control_IdChanged;
                         edt.EnabledChange += Control_EnableChange;
@@ -211,6 +214,12 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
                 Save(false);
             }
 
+            else if (e.Item == btnSaveAs)
+            {
+                // Authorization Control
+                SaveAs();
+            }
+
             else if (e.Item == btnBack)
             {
                 Back();
@@ -233,6 +242,17 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
 
             Cursor.Current = DefaultCursor;
+        }
+
+        private void SaveAs()
+        {
+            if (Messages.YesSelectYesNo("A new filter will be created.Do you confirm?", "Do you confirm?") !=
+                DialogResult.Yes)
+                return;
+            processType = ProcessType.EntityInsert;
+            Loading();
+            if (Save(true))
+                Close();
         }
 
         protected virtual void Choosing(object sender)

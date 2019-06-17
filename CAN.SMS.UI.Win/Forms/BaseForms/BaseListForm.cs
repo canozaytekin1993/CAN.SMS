@@ -11,6 +11,9 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Windows.Forms;
+using CAN.SMS.Model.Entities;
+using CAN.SMS.UI.Win.Forms.FilterForms;
+using CAN.SMS.UI.Win.Show;
 
 namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
@@ -18,6 +21,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
     {
         #region Protected
 
+        private long _filterId;
         private bool _formViewSave;
         private bool _tableViewSave;
         protected IBaseFormShow FormShow;
@@ -53,6 +57,8 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             Table.ColumnWidthChanged += Table_ColumnWidthChanged;
             Table.ColumnPositionChanged += Table_ColumnPositionChanged;
             Table.EndSorting += Table_EndSorting;
+            Table.FilterEditorCreated += Table_FilterEditorCreated;
+            Table.ColumnFilterChanged += Table_ColumnFilterChanged;
 
             // Form Events
             Shown += BaseListForm_Show;
@@ -60,6 +66,18 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             FormClosing += BaseListForm_FormClosing;
             LocationChanged += BaseListForm_LocationChanged;
             SizeChanged += BaseListForm_SizeChanged;
+        }
+
+        private void Table_ColumnFilterChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Table.ActiveFilterString))
+                _filterId = 0;
+        }
+
+        private void Table_FilterEditorCreated(object sender, FilterControlEventArgs e)
+        {
+            e.ShowFilterEditor = false;
+            ShowEditForms<FilterEditForm>.ShowDialogEditForm(CardType.Filter, _filterId, cardType, Table.GridControl);
         }
 
         private void BaseListForm_SizeChanged(object sender, EventArgs e)
@@ -208,8 +226,15 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         {
         }
 
-        private void FilterEntity()
+        private void SelectFilter()
         {
+            var entity =
+                (Filter)ShowListForms<FilterListForm>.ShowDialogListForm(CardType.Filter, _filterId, cardType,
+                    Table.GridControl);
+            if (entity == null) return;
+
+            _filterId = (long)entity.Id;
+            Table.ActiveFilterString = entity.FilterText;
         }
 
         private void Print()
@@ -317,7 +342,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
             else if (e.Item == btnFilter)
             {
-                FilterEntity();
+                SelectFilter();
             }
             else if (e.Item == btnColumns)
             {

@@ -39,7 +39,7 @@ namespace CAN.SMS.UI.Win.Forms.CountyForms
 
         protected override void ShowEditForm(long id)
         {
-            var result = new ShowEditForms<CountyEditForm>().ShowDialogEditForm(CardType.County, id, _countryId, _countryName);
+            var result = ShowEditForms<CountyEditForm>.ShowDialogEditForm(CardType.County, id, _countryId, _countryName);
             ShowEditFormDefault(result);
         }
     }

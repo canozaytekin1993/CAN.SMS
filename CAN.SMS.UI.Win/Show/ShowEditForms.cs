@@ -21,10 +21,10 @@ namespace CAN.SMS.UI.Win.Show
             }
         }
 
-        public long ShowDialogEditForm(CardType cardType, long id, params object[] prm)
+        public static long ShowDialogEditForm(CardType cardType, long id, params object[] prm)
         {
             // Authorize Control
-
+            
             using (var frm = (TForm)Activator.CreateInstance(typeof(TForm), prm))
             {
                 frm.processType = id > 0 ? ProcessType.EntityUpdate : ProcessType.EntityInsert;
