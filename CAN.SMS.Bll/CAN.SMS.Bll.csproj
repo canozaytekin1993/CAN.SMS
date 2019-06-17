@@ -53,6 +53,7 @@
     <Compile Include="Base\BaseBll.cs" />
     <Compile Include="Functions\Converts.cs" />
     <Compile Include="Functions\GeneralFunctions.cs" />
+    <Compile Include="Functions\ValidationFunctions.cs" />
     <Compile Include="General\CountryBll.cs" />
     <Compile Include="General\CountyBll.cs" />
     <Compile Include="General\SchoolBll.cs" />

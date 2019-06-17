@@ -1,16 +1,16 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Net.NetworkInformation;
-using System.Windows.Forms;
-using CAN.SMS.Bll.Functions;
+﻿using CAN.SMS.Bll.Functions;
 using CAN.SMS.Bll.Interfaces;
 using CAN.SMS.Common.Enums;
 using CAN.SMS.Common.Functions;
 using CAN.SMS.Common.Messages;
 using CAN.SMS.Dal.Interfaces;
 using CAN.SMS.Model.Entities.Base;
+using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Windows.Forms;
+using CAN.SMS.Model.Attributes;
 
 namespace CAN.SMS.Bll.Base
 {
@@ -18,6 +18,57 @@ namespace CAN.SMS.Bll.Base
     {
         private readonly Control _ctrl;
         private IUnitOfWork<T> _ww;
+
+        private bool Validation(ProcessType processType, BaseEntity oldEntity, BaseEntity currentEntity,
+            Expression<Func<T, bool>> filter)
+        {
+            var errorControl = GetValidationErrorControl();
+
+            if (errorControl == null) return true;
+            _ctrl.Controls[errorControl].Focus();
+            return false;
+
+            string GetValidationErrorControl()
+            {
+                string genericCode()
+                {
+                    foreach (var property in typeof(T).GetPropertyAttributesFromType<Code>())
+                    {
+                        if (property.Attribute == null) continue;
+
+                        if ((processType == ProcessType.EntityInsert || oldEntity.Code == currentEntity.Code) && processType == ProcessType.EntityUpdate) continue;
+
+                        if (_ww.Rep.Count(filter) < 1) continue;
+
+                        Messages.RepeatedRegisterErrorMessage(property.Attribute._description);
+                        return property.Attribute._controlName;
+                    }
+
+                    return null;
+                }
+
+                string incorrectEntry()
+                {
+                    foreach (var property in typeof(T).GetPropertyAttributesFromType<RequiredFields>())
+                    {
+                        if (property.Attribute == null) continue;
+                        var value = property.Property.GetValue(currentEntity);
+
+                        if (property.Property.PropertyType == typeof(long))
+                            if ((long)value == 0) value = null;
+
+                        if (!string.IsNullOrEmpty(value?.ToString())) continue;
+
+                        Messages.IncorrectDataMessage(property.Attribute._description);
+                        return property.Attribute._controlName;
+                    }
+
+                    return null;
+                }
+
+                return incorrectEntry() ?? genericCode();
+            }
+        }
 
         protected BaseBll()
         {
@@ -51,12 +102,12 @@ namespace CAN.SMS.Bll.Base
             return _ww.Rep.Select(filter, selector);
         }
 
-        protected bool BaseInsert(BaseEntity entity, Expression<Func<T, bool>> filters)
+        protected bool BaseInsert(BaseEntity entity, Expression<Func<T, bool>> filter)
         {
             try
             {
                 GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _ww);
-                // Validation
+                if (!Validation(ProcessType.EntityInsert, null, entity, filter)) return false;
                 _ww.Rep.Insert(entity.EntityConvert<T>());
                 return _ww.Save();
             }
@@ -70,7 +121,7 @@ namespace CAN.SMS.Bll.Base
         protected bool BaseUpdate(BaseEntity oldEntity, BaseEntity currentEntity, Expression<Func<T, bool>> filter)
         {
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _ww);
-            // Validation
+            if (!Validation(ProcessType.EntityUpdate, null, currentEntity, filter)) return false;
             var changeColumn = oldEntity.ChangeColumnGet(currentEntity);
             if (changeColumn.Count == 0) return true;
             _ww.Rep.Update(currentEntity.EntityConvert<T>(), changeColumn);

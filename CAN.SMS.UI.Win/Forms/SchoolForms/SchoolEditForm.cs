@@ -28,6 +28,7 @@ namespace CAN.SMS.UI.Win.Forms.SchoolForms
             ControlObjectConnection();
 
             if (processType != ProcessType.EntityInsert) return;
+            Id = processType.CreateId(oldEntity);
             txtCode.Text = ((SchoolBll)bll).NewCodeCreate();
             txtSchoolName.Focus();
         }

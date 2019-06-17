@@ -3,10 +3,14 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
+using CAN.SMS.Common.Enums;
+using DevExpress.Export;
+using DevExpress.XtraPrinting;
 
 namespace CAN.SMS.UI.Win.Functions
 {
@@ -124,6 +128,86 @@ namespace CAN.SMS.UI.Win.Functions
             {
                 Messages.ErrorMessage(e.Message);
             }
+        }
+
+        public static void TableExport(this GridView table, FileType fileType, string fileFormat, string excelPageName = null)
+        {
+            if (Messages.TableExportMessage(fileFormat) != DialogResult.Yes) return;
+
+            if (!Directory.Exists(Application.StartupPath + @"\Temp"))
+                Directory.CreateDirectory(Application.StartupPath + @"\Temp");
+
+            var fileName = Guid.NewGuid().ToString();
+            var filePath = $@"{Application.StartupPath}\Temp\{fileName}";
+
+            switch (fileType)
+            {
+                case FileType.ExcelStandart:
+                    {
+                        var opt = new XlsxExportOptionsEx
+                        {
+                            ExportType = DevExpress.Export.ExportType.Default,
+                            SheetName = excelPageName,
+                            TextExportMode = TextExportMode.Text
+                        };
+
+                        filePath = filePath + ".Xlsx";
+                        table.ExportToXlsx(filePath, opt);
+                    }
+                    break;
+                case FileType.ExcelFormat:
+                    {
+                        var opt = new XlsxExportOptionsEx
+                        {
+                            ExportType = DevExpress.Export.ExportType.WYSIWYG,
+                            SheetName = excelPageName,
+                            TextExportMode = TextExportMode.Text
+                        };
+
+                        filePath = filePath + ".Xlsx";
+                        table.ExportToXlsx(filePath, opt);
+                    }
+                    break;
+                case FileType.ExcelUnformatted:
+                    {
+                        var opt = new CsvExportOptionsEx
+                        {
+                            ExportType = DevExpress.Export.ExportType.WYSIWYG,
+                            TextExportMode = TextExportMode.Text
+                        };
+
+                        filePath = filePath + ".Csv";
+                        table.ExportToCsv(filePath, opt);
+                    }
+                    break;
+                case FileType.WordFile:
+                    {
+                        filePath = filePath + ".Rtf";
+                        table.ExportToRtf(filePath);
+                    }
+                    break;
+                case FileType.PdfFile:
+                    {
+                        filePath = filePath + ".Pdf";
+                        table.ExportToPdf(filePath);
+                    }
+                    break;
+                case FileType.TxtFile:
+                    {
+                        var opt = new TextExportOptions { TextExportMode = TextExportMode.Text };
+                        filePath = filePath + ".Txt";
+                        table.ExportToText(filePath, opt);
+                    }
+                    break;
+            }
+
+            if (!File.Exists(filePath))
+            {
+                Messages.ErrorMessage("File not found.");
+                return;
+            }
+
+            Process.Start(filePath);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CAN.SMS.Model.Attributes;
 using CAN.SMS.Model.Entities.Base;
 
 namespace CAN.SMS.Model.Entities
@@ -11,6 +12,7 @@ namespace CAN.SMS.Model.Entities
 
         [Required]
         [StringLength(50)]
+        [RequiredFields("Country Name", "txtCountryName")]
         public string CountryName { get; set; }
 
         [StringLength(500)]

@@ -272,21 +272,27 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             }
             else if (e.Item == btnExcelFileStandart)
             {
+                Table.TableExport(FileType.ExcelStandart, e.Item.Caption, Text);
             }
             else if (e.Item == btnExcelFileFormat)
             {
+                Table.TableExport(FileType.ExcelFormat, e.Item.Caption, Text);
             }
             else if (e.Item == btnExcelFileUnformatted)
             {
+                Table.TableExport(FileType.ExcelUnformatted, e.Item.Caption, Text);
             }
             else if (e.Item == btnWordFile)
             {
+                Table.TableExport(FileType.WordFile, e.Item.Caption);
             }
             else if (e.Item == btnPdfFile)
             {
+                Table.TableExport(FileType.PdfFile, e.Item.Caption);
             }
             else if (e.Item == btnTextFile)
             {
+                Table.TableExport(FileType.TxtFile, e.Item.Caption);
             }
             else if (e.Item == btnNew)
             {

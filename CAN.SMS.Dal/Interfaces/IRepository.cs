@@ -1,8 +1,8 @@
-﻿using System;
+﻿using CAN.SMS.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using CAN.SMS.Common.Enums;
 
 namespace CAN.SMS.Dal.Interfaces
 {
@@ -17,6 +17,7 @@ namespace CAN.SMS.Dal.Interfaces
         void Delete(IEnumerable<T> entities);
         TResult Find<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> select);
         IQueryable<TResult> Select<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> select);
+        int Count(Expression<Func<T, bool>> filter = null);
         string NewCodeGenerate(CardType cardType, Expression<Func<T, string>> filter,
             Expression<Func<T, bool>> where = null);
     }

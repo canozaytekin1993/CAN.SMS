@@ -188,7 +188,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             CreateObject();
             ViewLoading();
             //ButtonHideOrShow();
-            Id = processType.CreateId(oldEntity);
+            //Id = processType.CreateId(oldEntity);
 
             // Update process.
         }

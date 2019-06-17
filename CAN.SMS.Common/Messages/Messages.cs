@@ -1,5 +1,5 @@
-﻿using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using System.Windows.Forms;
 
 namespace CAN.SMS.Common.Messages
 {
@@ -51,6 +51,21 @@ namespace CAN.SMS.Common.Messages
         public static void CardNotChooseWarningMessage()
         {
             WarningMessage("Please select a card.");
+        }
+
+        public static void RepeatedRegisterErrorMessage(string fieldName)
+        {
+            WarningMessage($"{fieldName} previously used.");
+        }
+
+        public static void IncorrectDataMessage(string fieldName)
+        {
+            WarningMessage($"{fieldName} enter the value in the field.");
+        }
+
+        public static DialogResult TableExportMessage(string fileFormat)
+        {
+            return YesSelectYesNo($"{fileFormat} do you confirm?", "Confirmation");
         }
     }
 }

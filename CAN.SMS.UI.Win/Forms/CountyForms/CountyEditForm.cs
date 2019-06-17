@@ -37,6 +37,7 @@ namespace CAN.SMS.UI.Win.Forms.CountyForms
             Text = Text + $" - ({_countryName})";
 
             if (processType != ProcessType.EntityInsert) return;
+            Id = processType.CreateId(oldEntity);
             txtCode.Text = ((CountyBll)bll).NewCodeCreate(x => x.CountryId == _countryId);
             txtCountyName.Focus();
         }

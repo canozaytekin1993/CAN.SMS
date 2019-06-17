@@ -25,6 +25,7 @@ namespace CAN.SMS.UI.Win.Forms.CountryForms
             ControlObjectConnection();
 
             if (processType != ProcessType.EntityInsert) return;
+            Id = processType.CreateId(oldEntity);
             txtCode.Text = ((CountryBll)bll).NewCodeCreate();
             txtCountryName.Focus();
         }

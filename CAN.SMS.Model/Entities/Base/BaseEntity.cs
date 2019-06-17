@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CAN.SMS.Model.Attributes;
 using CAN.SMS.Model.Entities.Base.Interfaces;
 
 namespace CAN.SMS.Model.Entities.Base
@@ -14,6 +15,8 @@ namespace CAN.SMS.Model.Entities.Base
         [Column(Order = 1)]
         [Required]
         [StringLength(20)]
+        [Code("Code", "txtCode")]
+        [RequiredFields("Code", "txtCode")]
         public virtual string Code { get; set; }
     }
 }
