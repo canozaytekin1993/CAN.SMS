@@ -56,6 +56,7 @@
     <Compile Include="Functions\ValidationFunctions.cs" />
     <Compile Include="General\CountryBll.cs" />
     <Compile Include="General\CountyBll.cs" />
+    <Compile Include="General\FilterBll.cs" />
     <Compile Include="General\SchoolBll.cs" />
     <Compile Include="Interfaces\IBaseBll.cs" />
     <Compile Include="Interfaces\IBaseCommonBll.cs" />

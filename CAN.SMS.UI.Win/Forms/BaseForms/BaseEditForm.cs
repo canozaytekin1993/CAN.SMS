@@ -3,16 +3,16 @@ using CAN.SMS.Common.Enums;
 using CAN.SMS.Common.Messages;
 using CAN.SMS.Model.Entities.Base;
 using CAN.SMS.UI.Win.Functions;
+using CAN.SMS.UI.Win.Interfaces;
 using CAN.SMS.UI.Win.UserControls.Controls;
+using CAN.SMS.UI.Win.UserControls.Controls.Grid;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraPrinting.Native;
 using System;
-using System.Diagnostics;
 using System.Windows.Forms;
-using CAN.SMS.UI.Win.Interfaces;
-using CAN.SMS.UI.Win.UserControls.Controls.Grid;
 
 namespace CAN.SMS.UI.Win.Forms.BaseForms
 {
@@ -30,6 +30,8 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         protected internal ProcessType processType;
         protected internal bool Refresh;
         protected bool saveBeforeFormClose = true;
+        protected BarItem[] ShowItem;
+        protected BarItem[] HideItem;
 
         public BaseEditForm()
         {
@@ -125,7 +127,9 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             if (!Save(true)) e.Cancel = true;
         }
 
-        protected void ViewSave()
+        protected virtual void ApplyFilter() { }
+
+        protected virtual void ViewSave()
         {
             if (_formViewSave)
                 Name.FormLocationSave(Left, Top, Width, Height, WindowState);
@@ -187,8 +191,7 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             IsLoaded = true;
             CreateObject();
             ViewLoading();
-            //ButtonHideOrShow();
-            //Id = processType.CreateId(oldEntity);
+            ButtonHideOrShow();
 
             // Update process.
         }
@@ -217,6 +220,11 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
             {
                 // Authorization Control
                 EntityDelete();
+            }
+
+            else if (e.Item == btnApply)
+            {
+                ApplyFilter();
             }
 
             else if (e.Item == btnExit)
@@ -326,10 +334,16 @@ namespace CAN.SMS.UI.Win.Forms.BaseForms
         {
         }
 
-        protected internal virtual void ButtonEnableStatus()
+        protected virtual void ButtonEnableStatus()
         {
             if (!IsLoaded) return;
             GeneralFunctions.ButtonEnabledStatus(btnNew, btnSave, btnBack, btnDelete, oldEntity, currentEntity);
+        }
+
+        private void ButtonHideOrShow()
+        {
+            ShowItem?.ForEach(x => x.Visibility = BarItemVisibility.Always);
+            HideItem?.ForEach(x => x.Visibility = BarItemVisibility.Never);
         }
 
         #endregion

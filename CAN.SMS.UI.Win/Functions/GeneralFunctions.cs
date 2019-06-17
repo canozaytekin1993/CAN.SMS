@@ -62,6 +62,17 @@ namespace CAN.SMS.UI.Win.Functions
             btnDelete.Enabled = !buttonEnabledStatus;
         }
 
+        public static void ButtonEnabledStatus<T>(BarButtonItem btnSave, BarButtonItem btnSaveAs,
+            BarButtonItem btnDelete, ProcessType processType, T oldEntity, T currentEntity)
+        {
+            var dataChangeLocation = dataChangeLocationGet(oldEntity, currentEntity);
+            var buttonEnabledStatus = dataChangeLocation == DataChangeLocation.Column;
+
+            btnSave.Enabled = buttonEnabledStatus;
+            btnSaveAs.Enabled = processType != ProcessType.EntityInsert;
+            btnDelete.Enabled = !buttonEnabledStatus;
+        }
+
         public static long CreateId(this ProcessType processType, BaseEntity selectedEntity)
         {
             string ZeroAdd(string value)

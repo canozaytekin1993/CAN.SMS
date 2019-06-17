@@ -57,12 +57,19 @@
     <Compile Include="Entities\Base\Interfaces\IBaseEntity.cs" />
     <Compile Include="Entities\County.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Filter.cs" />
     <Compile Include="Entities\School.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CAN.SMS.Common\CAN.SMS.Common.csproj">
+      <Project>{05A35ECA-5254-425F-A5E3-B474487E97D3}</Project>
+      <Name>CAN.SMS.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

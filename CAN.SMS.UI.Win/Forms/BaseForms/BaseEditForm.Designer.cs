@@ -62,6 +62,8 @@
             this.statusBarInfo = new DevExpress.XtraBars.BarStaticItem();
             this.statusShortCut = new DevExpress.XtraBars.BarStaticItem();
             this.statusShortCutInfo = new DevExpress.XtraBars.BarStaticItem();
+            this.btnSaveAs = new DevExpress.XtraBars.BarButtonItem();
+            this.btnApply = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -84,9 +86,11 @@
             this.btnExit,
             this.statusBarInfo,
             this.statusShortCut,
-            this.statusShortCutInfo});
+            this.statusShortCutInfo,
+            this.btnSaveAs,
+            this.btnApply});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 9;
+            this.ribbonControl.MaxItemId = 11;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -99,7 +103,7 @@
             this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowQatLocationSelector = false;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(562, 102);
+            this.ribbonControl.Size = new System.Drawing.Size(516, 102);
             this.ribbonControl.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
@@ -235,6 +239,26 @@
             this.statusShortCutInfo.ItemAppearance.Normal.Options.UseForeColor = true;
             this.statusShortCutInfo.Name = "statusShortCutInfo";
             // 
+            // btnSaveAs
+            // 
+            this.btnSaveAs.Caption = "Save As";
+            this.btnSaveAs.Id = 9;
+            this.btnSaveAs.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.saveall_16x16;
+            this.btnSaveAs.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.saveall_32x32;
+            this.btnSaveAs.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2));
+            this.btnSaveAs.Name = "btnSaveAs";
+            this.btnSaveAs.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // btnApply
+            // 
+            this.btnApply.Caption = "Apply";
+            this.btnApply.Id = 10;
+            this.btnApply.ImageOptions.Image = global::CAN.SMS.UI.Win.Properties.Resources.insertrangefilter_16x16;
+            this.btnApply.ImageOptions.LargeImage = global::CAN.SMS.UI.Win.Properties.Resources.insertrangefilter_32x32;
+            this.btnApply.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F8);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -246,8 +270,10 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNew);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSave);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnSaveAs);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBack);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDelete);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnApply);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnExit);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
@@ -257,10 +283,10 @@
             this.ribbonStatusBar1.ItemLinks.Add(this.statusBarInfo);
             this.ribbonStatusBar1.ItemLinks.Add(this.statusShortCut);
             this.ribbonStatusBar1.ItemLinks.Add(this.statusShortCutInfo);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 421);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 393);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(562, 31);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(516, 31);
             // 
             // ribbonPage2
             // 
@@ -271,7 +297,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 452);
+            this.ClientSize = new System.Drawing.Size(516, 424);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl);
             this.MinimizeBox = false;
@@ -291,14 +317,16 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
-        private DevExpress.XtraBars.BarButtonItem btnNew;
-        private DevExpress.XtraBars.BarButtonItem btnSave;
-        private DevExpress.XtraBars.BarButtonItem btnBack;
-        private DevExpress.XtraBars.BarButtonItem btnDelete;
+        protected DevExpress.XtraBars.BarButtonItem btnSave;
+        protected DevExpress.XtraBars.BarButtonItem btnDelete;
         private DevExpress.XtraBars.BarButtonItem btnExit;
         private DevExpress.XtraBars.BarStaticItem statusBarInfo;
         private DevExpress.XtraBars.BarStaticItem statusShortCut;
         private DevExpress.XtraBars.BarStaticItem statusShortCutInfo;
         protected DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
+        protected DevExpress.XtraBars.BarButtonItem btnBack;
+        protected DevExpress.XtraBars.BarButtonItem btnSaveAs;
+        protected DevExpress.XtraBars.BarButtonItem btnApply;
+        protected DevExpress.XtraBars.BarButtonItem btnNew;
     }
 }

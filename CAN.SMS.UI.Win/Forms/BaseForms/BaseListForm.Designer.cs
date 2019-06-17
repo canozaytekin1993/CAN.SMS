@@ -801,11 +801,7 @@
         private DevExpress.XtraBars.BarButtonItem btnSelect;
         private DevExpress.XtraBars.BarButtonItem btnEdit;
         private DevExpress.XtraBars.BarButtonItem btnRefresh;
-        private DevExpress.XtraBars.BarButtonItem btnFilter;
-        private DevExpress.XtraBars.BarButtonItem btnColumns;
-        private DevExpress.XtraBars.BarButtonItem btnPrint;
         private DevExpress.XtraBars.BarButtonItem btnExit;
-        private DevExpress.XtraBars.BarSubItem btnSender;
         private DevExpress.XtraBars.BarStaticItem barInsert;
         private DevExpress.XtraBars.BarStaticItem barInsertDescription;
         private DevExpress.XtraBars.BarStaticItem barDelete;
@@ -816,14 +812,6 @@
         private DevExpress.XtraBars.BarStaticItem barEditDescription;
         private DevExpress.XtraBars.BarStaticItem barRefresh;
         private DevExpress.XtraBars.BarStaticItem barRefreshDescription;
-        private DevExpress.XtraBars.BarStaticItem barFilter;
-        private DevExpress.XtraBars.BarStaticItem barFilterDescription;
-        private DevExpress.XtraBars.BarStaticItem barColumn;
-        private DevExpress.XtraBars.BarStaticItem barColumnDescription;
-        private DevExpress.XtraBars.BarStaticItem barPrint;
-        private DevExpress.XtraBars.BarStaticItem barPrintDescription;
-        private DevExpress.XtraBars.BarStaticItem barSender;
-        private DevExpress.XtraBars.BarStaticItem barSenderDescription;
         private DevExpress.XtraBars.BarStaticItem barStaticItem4;
         private DevExpress.XtraBars.BarStaticItem barExit;
         private DevExpress.XtraBars.BarStaticItem barExitDescription;
@@ -837,5 +825,17 @@
         private DevExpress.XtraBars.BarButtonItem btnTextFile;
         private DevExpress.XtraBars.PopupMenu rightClickMenu;
         protected DevExpress.XtraBars.BarButtonItem btnRelatedCards;
+        protected DevExpress.XtraBars.BarButtonItem btnFilter;
+        protected DevExpress.XtraBars.BarButtonItem btnColumns;
+        protected DevExpress.XtraBars.BarButtonItem btnPrint;
+        protected DevExpress.XtraBars.BarSubItem btnSender;
+        protected DevExpress.XtraBars.BarStaticItem barFilter;
+        protected DevExpress.XtraBars.BarStaticItem barFilterDescription;
+        protected DevExpress.XtraBars.BarStaticItem barColumn;
+        protected DevExpress.XtraBars.BarStaticItem barColumnDescription;
+        protected DevExpress.XtraBars.BarStaticItem barPrint;
+        protected DevExpress.XtraBars.BarStaticItem barPrintDescription;
+        protected DevExpress.XtraBars.BarStaticItem barSender;
+        protected DevExpress.XtraBars.BarStaticItem barSenderDescription;
     }
 }

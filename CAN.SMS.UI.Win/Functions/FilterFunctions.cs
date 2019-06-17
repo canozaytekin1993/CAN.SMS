@@ -11,7 +11,7 @@ namespace CAN.SMS.UI.Win.Functions
             return x => x.Statu == activeCardsShow;
         }
 
-        public static Expression<Func<T, bool>> Filter<T>(long id) where T : BaseEntityStatu
+        public static Expression<Func<T, bool>> Filter<T>(long id) where T : BaseEntity
         {
             return x => x.Id == id;
         }

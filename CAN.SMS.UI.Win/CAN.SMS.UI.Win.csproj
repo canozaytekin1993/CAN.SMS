@@ -102,6 +102,18 @@
     <Compile Include="Forms\CountyForms\CountyListForm.Designer.cs">
       <DependentUpon>CountyListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FilterForms\FilterEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FilterForms\FilterEditForm.Designer.cs">
+      <DependentUpon>FilterEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FilterForms\FilterListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FilterForms\FilterListForm.Designer.cs">
+      <DependentUpon>FilterListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SchoolForms\SchoolEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +244,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CountyForms\CountyListForm.resx">
       <DependentUpon>CountyListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FilterForms\FilterEditForm.resx">
+      <DependentUpon>FilterEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FilterForms\FilterListForm.resx">
+      <DependentUpon>FilterListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SchoolForms\SchoolEditForm.resx">
       <DependentUpon>SchoolEditForm.cs</DependentUpon>
@@ -423,6 +441,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\insertrangefilter_32x32.png" />
+    <None Include="Resources\insertrangefilter_16x16.png" />
+    <None Include="Resources\saveall_32x32.png" />
+    <None Include="Resources\saveall_16x16.png" />
     <None Include="Resources\documentmap_16x16.png" />
     <None Include="Resources\documentmap_32x32.png" />
     <Content Include="Resources\exporttodocx_16x16.png" />
