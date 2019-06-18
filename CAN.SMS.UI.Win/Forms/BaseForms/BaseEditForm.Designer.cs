@@ -78,6 +78,8 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPreview = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,9 +100,11 @@
             this.statusShortCut,
             this.statusShortCutInfo,
             this.btnSaveAs,
-            this.btnApply});
+            this.btnApply,
+            this.btnPrint,
+            this.btnPreview});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 11;
+            this.ribbonControl.MaxItemId = 13;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -309,6 +313,8 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDelete);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnApply);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnExit);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnPrint);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnPreview);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
@@ -326,6 +332,18 @@
             // 
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Caption = "Print";
+            this.btnPrint.Id = 11;
+            this.btnPrint.Name = "btnPrint";
+            // 
+            // btnPreview
+            // 
+            this.btnPreview.Caption = "Preview";
+            this.btnPreview.Id = 12;
+            this.btnPreview.Name = "btnPreview";
             // 
             // BaseEditForm
             // 
@@ -362,5 +380,7 @@
         protected DevExpress.XtraBars.BarButtonItem btnSaveAs;
         protected DevExpress.XtraBars.BarButtonItem btnApply;
         protected DevExpress.XtraBars.BarButtonItem btnNew;
+        private DevExpress.XtraBars.BarButtonItem btnPrint;
+        private DevExpress.XtraBars.BarButtonItem btnPreview;
     }
 }
